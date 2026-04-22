@@ -45,6 +45,24 @@ Exactly five sections, in this order:
     # Notes
     <empty — loop iterations append decisions, deviations, and discoveries>
 
+# Mini Example
+
+    # Goal
+    Prevent duplicate webhook retries from creating duplicate rows.
+
+    # Constraints
+    - Keep the current schema.
+
+    # Done when
+    - [ ] `go test ./internal/webhooks -run TestIdempotency` exits 0
+    - [ ] review returns ACCEPT
+
+    # Tasks
+    - [ ] (dev) Implement idempotent insert in `internal/webhooks`. Done when: `go test ./internal/webhooks -run TestIdempotency` exits 0.
+    - [ ] (review) Review the implementation. Done when: verdict = ACCEPT, all findings addressed.
+
+    # Notes
+
 # Rules
 
 - One plan.md. Writing it is the only side effect.

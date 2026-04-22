@@ -22,7 +22,7 @@ echo "Source: $SRC"
 # Claude Code
 mkdir -p ~/.claude/agents
 backup ~/.claude/AGENTS.md
-cp "$SRC/AGENTS.md" ~/.claude/AGENTS.md
+cp "$SRC/templates/AGENTS.md" ~/.claude/AGENTS.md
 echo "  wrote: ~/.claude/AGENTS.md"
 
 backup ~/.claude/CLAUDE.md
@@ -31,15 +31,21 @@ echo "  wrote: ~/.claude/CLAUDE.md"
 
 for a in arch dev plan refine research review; do
   backup ~/.claude/agents/$a.md
-  cp "$SRC/.claude/agents/$a.md" ~/.claude/agents/$a.md
+  cp "$SRC/templates/agents/$a.md" ~/.claude/agents/$a.md
   echo "  wrote: ~/.claude/agents/$a.md"
 done
 
-# Codex (shares the same AGENTS.md)
-mkdir -p ~/.codex
+# Codex (shares the same AGENTS.md; gets its own subagents as .toml)
+mkdir -p ~/.codex/agents
 backup ~/.codex/AGENTS.md
 ln -s ~/.claude/AGENTS.md ~/.codex/AGENTS.md
 echo "  link:  ~/.codex/AGENTS.md -> ~/.claude/AGENTS.md"
+
+for a in arch dev plan refine research review; do
+  backup ~/.codex/agents/$a.toml
+  cp "$SRC/templates/codex-agents/$a.toml" ~/.codex/agents/$a.toml
+  echo "  wrote: ~/.codex/agents/$a.toml"
+done
 
 echo
 echo "Done. Restart Claude Code / Codex to load."

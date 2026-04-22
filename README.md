@@ -5,16 +5,24 @@ Minimal, opinionated prompt scaffolding for Claude Code and Codex. Produces obvi
 ## What's here
 
 ```
-AGENTS.md              # Mission, non-negotiables, role split, pipelines (content)
-CLAUDE.md              # Claude Code entry — one line: @AGENTS.md
-.claude/agents/
-  arch.md              # Architecture specialist
-  dev.md               # Implementation + self-verification specialist
-  plan.md              # Requirement → plan.md for unattended execution
-  refine.md            # Empirical refinement of an existing implementation
-  research.md          # Domain investigation, comparison, recommendation
-  review.md            # Severity × Confidence critique with BLOCK/INVESTIGATE/ACCEPT verdict
-install.sh             # Install to ~/.claude and ~/.codex
+templates/             # Source files published by install.sh (kept out of the
+  AGENTS.md            #   project root so this repo isn't governed by its own
+  agents/              #   published rules)
+    arch.md            # Claude subagents (markdown + YAML frontmatter)
+    dev.md
+    plan.md
+    refine.md
+    research.md
+    review.md
+  codex-agents/
+    arch.toml          # Codex subagents (TOML); same six roles, Codex format
+    dev.toml
+    plan.toml
+    refine.toml
+    research.toml
+    review.toml
+CLAUDE.md              # Project meta: describes claudex itself; no scaffolding imports
+install.sh             # Publish templates/ to ~/.claude and ~/.codex
 ```
 
 ## Install
@@ -27,8 +35,11 @@ Pushes to:
 
 - `~/.claude/CLAUDE.md` (imports `@AGENTS.md`)
 - `~/.claude/AGENTS.md` (the real content)
-- `~/.claude/agents/{arch,dev,plan,research,review}.md`
+- `~/.claude/agents/{arch,dev,plan,refine,research,review}.md`
 - `~/.codex/AGENTS.md` → symlink to `~/.claude/AGENTS.md`
+- `~/.codex/agents/{arch,dev,plan,refine,research,review}.toml` (Codex subagents)
+
+The Codex subagent templates intentionally define only `name`, `description`, and `developer_instructions`. Model, reasoning effort, sandbox, and MCP settings inherit from the parent session unless you explicitly override them for a role.
 
 Idempotent. Existing files are backed up with a timestamp suffix.
 
@@ -36,12 +47,15 @@ Re-run after any change in this repo.
 
 ## CLAUDE.md vs AGENTS.md
 
-| File | Read by | Role |
-|------|---------|------|
-| `CLAUDE.md` | Claude Code (native) | One-line entry: `@AGENTS.md` |
-| `AGENTS.md` | Codex (native); Claude Code (via import) | Actual mission, non-negotiables, pipelines |
+The scaffolding is **published to `~/.claude/` and `~/.codex/`**, not kept at the project root of claudex itself. This keeps claudex from being governed by the very rules it ships.
 
-Claude Code does **not** read `AGENTS.md` directly. It reads `CLAUDE.md`, which imports `AGENTS.md` via `@AGENTS.md`. This gives one source of truth that both tools share.
+| Installed file | Read by | Role |
+|----------------|---------|------|
+| `~/.claude/CLAUDE.md` | Claude Code (native) | One-line entry: `@AGENTS.md` |
+| `~/.claude/AGENTS.md` | Codex (native); Claude Code (via import) | Mission, non-negotiables, pipelines |
+| `~/.codex/AGENTS.md` | Codex (native) | Symlink to `~/.claude/AGENTS.md` — one source of truth |
+
+Claude Code does **not** read `AGENTS.md` directly. It reads `CLAUDE.md`, which imports `AGENTS.md` via `@AGENTS.md`. The claudex repo root intentionally has no `AGENTS.md` and no `@AGENTS.md` import in its `CLAUDE.md`.
 
 ## How to use
 
@@ -138,19 +152,19 @@ Done when: bench 显示内存 < 2GB, 现有 dedup 测试全绿, review 返回 AC
 
 Crash recovery comes for free: state lives on disk.
 
-**Research tasks don't need `/loop`.** The research agent has its own internal loop (with a hard budget). Just give it the question + decision metric:
+**Research tasks usually don't need `/loop`.** They are bounded report-writing tasks. Just give the question, decision metric, and constraints:
 
 ```
 Goal: 找一个在 1M 稀疏向量上 recall@10 ≥ 0.95 且 p99 < 2ms 的 ANN 索引
-Baseline: FAISS-IVF
-Hard budget: 5 实验
+Decision metric: recall@10, p99 latency, and operational cost
+Constraints: 仅比较可在现有基础设施里落地的方案；给出 sources 和 residual risks
 ```
 
 ## Per-project overrides
 
 When a specific repo needs rules that differ from the global mission (safety-critical code needs aggressive validation; some teams prefer strict DRY over AHA), drop a `./CLAUDE.md` at the repo root. It's loaded automatically and concatenated with the global rules; more specific wins on conflicts.
 
-Same for subagents: `./.claude/agents/foo.md` in a repo overrides `~/.claude/agents/foo.md` of the same name.
+Same for subagents: `./.claude/agents/foo.md` in a repo overrides `~/.claude/agents/foo.md` of the same name. Codex works the same way with `./.codex/agents/foo.toml`.
 
 Default case: no per-repo files. Global rules apply everywhere.
 
