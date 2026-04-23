@@ -21,7 +21,6 @@ templates/             # Source files published by install.sh (kept out of the
     refine.toml
     research.toml
     review.toml
-CLAUDE.md              # Project meta: describes claudex itself; no scaffolding imports
 install.sh             # Publish templates/ to ~/.claude and ~/.codex
 ```
 
@@ -33,8 +32,8 @@ install.sh             # Publish templates/ to ~/.claude and ~/.codex
 
 Pushes to:
 
-- `~/.claude/CLAUDE.md` (imports `@AGENTS.md`)
-- `~/.claude/AGENTS.md` (the real content)
+- `~/.claude/CLAUDE.md` (same prompt content as `AGENTS.md`, Claude Code entrypoint)
+- `~/.claude/AGENTS.md` (same prompt content, kept for Codex and shared references)
 - `~/.claude/agents/{arch,dev,plan,refine,research,review}.md`
 - `~/.codex/AGENTS.md` → symlink to `~/.claude/AGENTS.md`
 - `~/.codex/agents/{arch,dev,plan,refine,research,review}.toml` (Codex subagents)
@@ -51,11 +50,11 @@ The scaffolding is **published to `~/.claude/` and `~/.codex/`**, not kept at th
 
 | Installed file | Read by | Role |
 |----------------|---------|------|
-| `~/.claude/CLAUDE.md` | Claude Code (native) | One-line entry: `@AGENTS.md` |
-| `~/.claude/AGENTS.md` | Codex (native); Claude Code (via import) | Mission, non-negotiables, pipelines |
+| `~/.claude/CLAUDE.md` | Claude Code (native) | Mission, non-negotiables, pipelines |
+| `~/.claude/AGENTS.md` | Codex (native); shared references | Same prompt content under the `AGENTS.md` name |
 | `~/.codex/AGENTS.md` | Codex (native) | Symlink to `~/.claude/AGENTS.md` — one source of truth |
 
-Claude Code does **not** read `AGENTS.md` directly. It reads `CLAUDE.md`, which imports `AGENTS.md` via `@AGENTS.md`. The claudex repo root intentionally has no `AGENTS.md` and no `@AGENTS.md` import in its `CLAUDE.md`.
+Claude Code reads `CLAUDE.md`; Codex reads `AGENTS.md`. `install.sh` writes the same prompt content to both filenames so each tool gets the same rules under its native entrypoint. The claudex repo root intentionally has no published prompt files; the scaffolding lives under `templates/` until `install.sh` writes it to `~/.claude/` and `~/.codex/`.
 
 ## How to use
 

@@ -26,7 +26,7 @@ cp "$SRC/templates/AGENTS.md" ~/.claude/AGENTS.md
 echo "  wrote: ~/.claude/AGENTS.md"
 
 backup ~/.claude/CLAUDE.md
-printf '@AGENTS.md\n' > ~/.claude/CLAUDE.md
+cp "$SRC/templates/AGENTS.md" ~/.claude/CLAUDE.md
 echo "  wrote: ~/.claude/CLAUDE.md"
 
 for a in arch dev plan refine research review; do
