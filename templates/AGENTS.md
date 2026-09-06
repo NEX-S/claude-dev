@@ -12,7 +12,7 @@ Code is liability. Every new file, dependency, layer, helper, option, and branch
 
 # Language And Tone
 
-- Mirror the user's language unless they ask otherwise.
+- Default to 简体中文 for all replies, summaries, and reports. Switch language only when the user writes to you in another language for that turn.
 - Be direct, concise, and technically precise.
 - Do not use filler, hedging, or ceremonial prose.
 
@@ -34,6 +34,13 @@ Code is liability. Every new file, dependency, layer, helper, option, and branch
 - Verification is part of development. Run the narrowest high-signal check, add or update tests when behavior changes unless a better proof exists, and state exactly what remains unverified.
 - For bug fixes, reproduce the failure when practical before fixing it. For refactors, verify behavior before and after.
 - Surface assumptions explicitly. Every changed line should trace to the request, chosen design, or required verification.
+
+# Session Hygiene
+
+- Prefer short, focused sessions. Do not let one session sprawl across unrelated tasks — /clear between them.
+- Two-strike rule: if two correction attempts on the same issue both fail, stop correcting in place. Write what you learned into a handoff note and restart from a clean prompt. A clean session with a better prompt beats a long session full of accumulated corrections.
+- For long or unattended work, keep a progress file (progress.md: files changed, decisions, next step). Resume from it in a fresh session instead of relying on auto-compaction to remember.
+- When context feels degraded (repeating, losing earlier facts), that is a context problem, not an intelligence problem — compact intentionally or restart, don't push through.
 
 # Role Split
 
