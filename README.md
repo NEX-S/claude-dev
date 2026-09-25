@@ -35,7 +35,7 @@ codex-dev
 codex-dev exec '修复当前失败的测试，并验证实际行为'
 ```
 
-参数、工作目录和退出码透传给原生 CLI。wrapper 只为子进程设置相应的开发配置根并 `exec` 原生命令，安装时不会改变 shell 别名、权限策略、模型或推理强度。
+参数、工作目录和退出码透传给原生 CLI。wrapper 只为子进程设置相应的开发配置根并 `exec` 原生命令，安装时不会改变 shell 别名。`claude-dev` 另有固定锚点：会话以 `--permission-mode bypassPermissions --effort max --autocompact 900k` 启动（你写在后面的同名参数仍然覆盖），且 `--model` 的值同时写入原生模型别名和 subagent 模型，避免内建 subagent 解析到端点不服务的 Anthropic 模型 id；不传 `--model` 时这些变量不设置。`codex-dev` 不设置这些。
 
 开发配置的登录、个人服务设置和历史独立维护，首次使用可能需要登录：
 

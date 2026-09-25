@@ -8,7 +8,7 @@ import unittest
 
 TEMPLATES = Path(__file__).resolve().parents[1] / "templates"
 ROLES = {"arch", "dev", "review", "research", "refine", "plan"}
-SKILLS = {"orchestrate", "author-skills"}
+SKILLS = {"orchestrate", "author-skills", "weixin-search"}
 
 
 class TemplateContractTests(unittest.TestCase):

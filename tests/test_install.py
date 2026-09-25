@@ -16,6 +16,8 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 ROLES = ("arch", "dev", "plan", "refine", "research", "review")
 SKILLS = ("orchestrate", "author-skills")
+ALIAS_VARIABLES = ["ANTHROPIC_DEFAULT_OPUS_MODEL", "ANTHROPIC_DEFAULT_SONNET_MODEL",
+                   "ANTHROPIC_DEFAULT_HAIKU_MODEL", "CLAUDE_CODE_SUBAGENT_MODEL"]
 
 
 class InstallTests(unittest.TestCase):
@@ -191,25 +193,35 @@ class InstallTests(unittest.TestCase):
             "if '--signal' in sys.argv: os.kill(os.getpid(), signal.SIGTERM)\n"
             "print(json.dumps({'argv': sys.argv[1:], 'cwd': os.getcwd(), 'home': os.environ['HOME'], "
             "'claude': os.environ.get('CLAUDE_CONFIG_DIR'), 'codex': os.environ.get('CODEX_HOME'), "
+            f"'aliases': {{name: os.environ.get(name) for name in {ALIAS_VARIABLES!r}}}, "
             "'pid': os.getpid()}), flush=True)\nsys.exit(23)\n"
         )
         for client, variable in (("claude", "claude"), ("codex", "codex")):
             native = self.put(client, program.encode(), commands)
             native.chmod(0o755)
-            env = {**self.env, "PATH": str(commands), "CLAUDE_CONFIG_DIR": "old claude", "CODEX_HOME": "old codex"}
+            env = {key: value for key, value in self.env.items() if key not in ALIAS_VARIABLES}
+            env.update(PATH=str(commands), CLAUDE_CONFIG_DIR="old claude", CODEX_HOME="old codex")
             args = ["two words", "", "quote'\"", "$(not-executed)", "line\nbreak", "--flag=value"]
-            process = subprocess.Popen(
-                [str(self.home / f".local/bin/{client}-dev"), *args], cwd=self.base,
-                env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
-            )
-            output, error = process.communicate(timeout=10)
-            self.assertEqual(process.returncode, 23, error)
-            captured = json.loads(output)
-            self.assertEqual(captured["argv"], args)
-            self.assertEqual(captured["cwd"], str(self.base))
-            self.assertEqual(captured["home"], self.env["HOME"])
-            self.assertEqual(captured[variable], str(self.home / f".{client}-dev"))
-            self.assertEqual(captured["pid"], process.pid)
+            for arguments, model in ((args, None), (["--model", "custom-model", *args], "custom-model")):
+                with self.subTest(client=client, model=model):
+                    process = subprocess.Popen(
+                        [str(self.home / f".local/bin/{client}-dev"), *arguments], cwd=self.base,
+                        env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True,
+                    )
+                    output, error = process.communicate(timeout=10)
+                    self.assertEqual(process.returncode, 23, error)
+                    captured = json.loads(output)
+                    expected = [
+                        "--permission-mode", "bypassPermissions",
+                        "--effort", "max", "--autocompact", "900k",
+                    ] if client == "claude" else []
+                    self.assertEqual(captured["argv"], expected + arguments)
+                    self.assertEqual(captured["cwd"], str(self.base))
+                    self.assertEqual(captured["home"], self.env["HOME"])
+                    self.assertEqual(captured[variable], str(self.home / f".{client}-dev"))
+                    self.assertEqual(captured["pid"], process.pid)
+                    pinned = model if client == "claude" else None
+                    self.assertEqual(captured["aliases"], {name: pinned for name in ALIAS_VARIABLES})
             result = subprocess.run([str(self.home / f".local/bin/{client}-dev"), "--signal"],
                                     env=env, capture_output=True, timeout=10)
             self.assertEqual(result.returncode, -signal.SIGTERM)

@@ -7,7 +7,6 @@ import { parseArgs } from "node:util";
 
 const ROOT = dirname(import.meta.dir);
 const ROLES = ["arch", "dev", "plan", "refine", "research", "review"];
-const SKILLS = ["orchestrate", "author-skills"];
 const utf8 = new TextDecoder("utf-8", { fatal: true, ignoreBOM: true });
 type Artifact = { path: string; content: Buffer; mode: number };
 
@@ -37,6 +36,31 @@ function frontmatter(path: string, fields: string[]) {
   return { metadata, body };
 }
 
+const ALIAS_VARIABLES = ["ANTHROPIC_DEFAULT_OPUS_MODEL", "ANTHROPIC_DEFAULT_SONNET_MODEL",
+  "ANTHROPIC_DEFAULT_HAIKU_MODEL", "CLAUDE_CODE_SUBAGENT_MODEL"];
+
+// A session that names one model still resolves the native opus/sonnet/haiku aliases for
+// built-in subagents and the auto-mode classifier. Those become Anthropic model ids, which an
+// endpoint that only serves its own model names rejects. Pin every alias to the requested model.
+function claudeWrapper(destination: string) {
+  return [
+    "#!/bin/sh",
+    `export CLAUDE_CONFIG_DIR='${destination}'`,
+    "model=",
+    "previous=",
+    'for argument in "$@"; do',
+    '    case $argument in --) break ;; esac',
+    '    case $previous in --model) model=$argument ;; esac',
+    '    case $argument in --model=*) model=${argument#--model=} ;; esac',
+    "    previous=$argument",
+    "done",
+    'if [ -n "$model" ]; then',
+    ...ALIAS_VARIABLES.map(name => `    export ${name}="$model"`),
+    "fi",
+    "exec claude --permission-mode bypassPermissions --effort max --autocompact 900k \"$@\"",
+  ].join("\n") + "\n";
+}
+
 function artifacts(home: string): Artifact[] {
   const template = join(ROOT, "templates");
   const root = fs.readFileSync(join(template, "AGENTS.md"));
@@ -58,7 +82,10 @@ function artifacts(home: string): Artifact[] {
     const toml = Object.entries(codex).map(([key, value]) => `${key} = ${JSON.stringify(value)}\n`).join("");
     add(`.codex-dev/agents/${role}.toml`, Buffer.from(toml.replaceAll("\x7f", "\\u007f")));
   }
-  for (const skill of SKILLS) {
+  for (const skill of fs.readdirSync(join(template, "skills"), { withFileTypes: true })
+    .filter(entry => entry.isDirectory() && !entry.name.startsWith("."))
+    .map(entry => entry.name)
+    .sort()) {
     const directory = join(template, "skills", skill);
     const { metadata } = frontmatter(join(directory, "SKILL.md"), ["name", "description"]);
     if (metadata.name !== skill) throw new Error(`${directory}: skill name must match its directory`);
@@ -78,7 +105,8 @@ function artifacts(home: string): Artifact[] {
   }
   for (const [client, variable] of [["claude", "CLAUDE_CONFIG_DIR"], ["codex", "CODEX_HOME"]]) {
     const destination = join(home, `.${client}-dev`).replaceAll("'", "'\"'\"'");
-    const wrapper = `#!/bin/sh\nexport ${variable}='${destination}'\nexec ${client} "$@"\n`;
+    const wrapper = client === "claude" ? claudeWrapper(destination)
+      : `#!/bin/sh\nexport ${variable}='${destination}'\nexec ${client} "$@"\n`;
     add(`.local/bin/${client}-dev`, Buffer.from(wrapper), 0o755);
   }
   return files;

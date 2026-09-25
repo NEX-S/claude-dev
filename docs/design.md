@@ -46,7 +46,9 @@
 ~/.local/bin/codex-dev
 ```
 
-`claude-dev "$@"` 设置 `CLAUDE_CONFIG_DIR` 为安装时确定的 `.claude-dev` 绝对目录后 `exec claude "$@"`；`codex-dev "$@"` 对应设置 `CODEX_HOME` 后 `exec codex "$@"`。路径以正确 shell quoting 写入 wrapper，运行时不重写 `HOME`。wrapper 保留当前目录、参数边界、退出码和信号行为，不注入模型、权限或自动批准参数，不改变原生命令的路径。安装结束提示确保安装目标的 `.local/bin` 在 `PATH`，不修改 shell 配置。
+`claude-dev "$@"` 设置 `CLAUDE_CONFIG_DIR` 为安装时确定的 `.claude-dev` 绝对目录后 `exec claude "$@"`；`codex-dev "$@"` 对应设置 `CODEX_HOME` 后 `exec codex "$@"`。路径以正确 shell quoting 写入 wrapper，运行时不重写 `HOME`。wrapper 保留当前目录、参数边界、退出码和信号行为，不改变原生命令的路径。安装结束提示确保安装目标的 `.local/bin` 在 `PATH`，不修改 shell 配置。
+
+`claude-dev` 另有固定锚点：会话以 `--permission-mode bypassPermissions --effort max --autocompact 900k` 启动；把 `--model` 的值（接受 `--model X` 与 `--model=X`，`--` 之后不再解析）写入 `ANTHROPIC_DEFAULT_{OPUS,SONNET,HAIKU}_MODEL` 和 `CLAUDE_CODE_SUBAGENT_MODEL`，没有 `--model` 时不设这些变量。这些都写在 `"$@"` 前面，用户自己写的同名参数仍然生效。后者是因为会话即使只指定一个模型，仍会按原生别名解析内建 subagent 和 auto mode 分类器的模型；别名会变成 Anthropic 模型 id，只服务自有模型名的端点会拒绝，客户端随后报分类器不可用或先等待再回退。`codex-dev` 不设置这些。
 
 隔离承诺只覆盖本项目发布的用户级内容：不写入原生默认目录的新指令或技能，不复制/链接默认认证、settings、config、历史。原生 CLI 仍可读取项目规则、项目配置、环境变量和其本身共享的技能路径；开发模式不是无外部影响的沙箱。用户已经自定义的普通 `claude` / `codex` 保留原本行为。
 
