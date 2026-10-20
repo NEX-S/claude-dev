@@ -1,0 +1,31 @@
+{
+  "kind": "staged-project-overlay",
+  "fixed_timeout_seconds": 180,
+  "session_id": "bd126cb5-23aa-48ee-8bb6-880e212b5acb",
+  "source_task_sha256": "af714fb1af5a9f389266c6d58593f865b944d3b326876f3070edb1e3064385c7",
+  "task_sha256": "da994733b21a5ee4d3b278847238350894bfdfa0e05d77ad6d1b8c9991283e65",
+  "seed": {
+    "tasks.py": "0a16f93d0dbc785693d97939c45ffda700336f5804864361df3901cf804c2e58",
+    "domain.py": "dca5f036dda09e40afbf063f41292d6915a34463c937444f83f78cf38e35e87a",
+    "persistence.py": "c712b126a5af69d32c7e7f157ae7c3735a4771118164d5cf501406af3af0a890",
+    "repository.py": "8a4731a8b43a51a2f1e764782eb677e0d4e9b3b97108e06702a7cf4e1930d559",
+    "application.py": "c138901b21898ab1290868d3ce0b8c3ae84c0ec65f9cca63edb3efb6600c2ff8",
+    "README.md": "04e2dd7a25e68abf8730dd1343b4cb3c065596c28175b207448c0deb8e736236",
+    "existing.db": "8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58"
+  },
+  "verifiers": {
+    "acceptance.py": "91a62e595f50a23e89fe3977b56e3df8d3214920dbf99cdc3527a5063606fd05",
+    "supplement.py": "acbe982b99f6f1bdc18ca6bb6e8699e180e268e32ec23e4560818d9754c36c32",
+    "existing-db.sha256": "184380b47e2cf744f5fb34d6967ac4414811ec1a7bea7953d03651a9051f3b6d"
+  },
+  "templates": {
+    "templates/grok/AGENTS.md": "93f130bc83ae848ae8385cf794d20228beee2422c808e2896adba101229525d5",
+    "templates/grok/skills/develop/SKILL.md": "7eb681c54651f377eaf0b8767b3219ebca482abb9384d8e8c8e2eeeb4ba0f678",
+    "templates/grok/agents/arch.md": "0ac2827526d1fe6a065aa680ab4cce0a61aa213fb07010a25df16a64ed1ff34c",
+    "templates/grok/agents/dev.md": "5cd805c35105e1791ac5bb6b47d5ec88e41fc2fc61f7d2ffec4f6ff8097cd0f2",
+    "templates/grok/agents/review.md": "6eaf502d456458c8775b50f187ec563cc6ba64e4bf48261bf3e66957778f5e26",
+    "templates/grok/agents/research.md": "28bc4f77dacdaf97bc2e8c8e9eec32bce7d1904362d3874042e4928a64f4f22e",
+    "templates/grok/agents/simplify.md": "86f68e9b216cd9322ea453a58a76b299c96290b8a8e0ebf7f2c3a38c6d5f8adb"
+  },
+  "existing_db_sha256": "8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58"
+}

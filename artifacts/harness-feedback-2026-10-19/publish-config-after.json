@@ -1,0 +1,27 @@
+{
+  ".codex/config.toml": {
+    "sha256": "280d90f856dcb78c034679bc6a5b96b7ece69744361efc177e1f72f905862748",
+    "mode": "0o600",
+    "unchanged": true
+  },
+  ".codex/dev.config.toml": {
+    "sha256": "a02c8259a21e0a5d21b32b7b48485958d75a34d1bfdea3fa1d24d5077bdc5453",
+    "mode": "0o644",
+    "unchanged": false
+  },
+  ".claude/settings.json": {
+    "sha256": "7e55872a49d377756cf488197d7b9ed18d3bfd98f80c00e999b60b65f4feb6dd",
+    "mode": "0o600",
+    "unchanged": true
+  },
+  ".claude-dev/settings.json": {
+    "sha256": "bc8a6d4dd8ea6fd5247d5035c32ba4f416f5dbb05c4e061f2cc993d1beca1822",
+    "mode": "0o644",
+    "unchanged": true
+  },
+  ".grok/config.toml": {
+    "sha256": "250dd47494fd0953e8deca00bdbb76e3e34743e23f783b0edbac3f355eaff15e",
+    "mode": "0o644",
+    "unchanged": true
+  }
+}

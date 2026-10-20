@@ -1,0 +1,12 @@
+{
+  "command": "CLAUDE_DEV_TEST_CLI=1 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v",
+  "tests": 48,
+  "passed": 48,
+  "skipped": 0,
+  "elapsed_seconds": 30.53,
+  "skill_format": "all three develop skills valid",
+  "codex_toml": "all parsed",
+  "markdown_file_links": "README and docs local targets exist",
+  "independent_semantic_review": "passed; three native roots/workflows/dev/simplify consistent",
+  "scope": "native installation/loading/protocol and template semantics; not a general code quality guarantee"
+}

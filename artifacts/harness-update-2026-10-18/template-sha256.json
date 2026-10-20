@@ -1,0 +1,18 @@
+{
+  "templates/CLAUDE.md": "badebd4eef24346db1946009fba0c9b06bd54320447ea0e04caa811884b763ea",
+  "templates/agents/arch.md": "51dfa4c0fd9bff982d2d0dcd50da95e7d2a5a47ca310a031ddc7ba57262b9d48",
+  "templates/agents/dev.md": "d0f705d4bb4a64e5c4ed33a96a91692831735c1f144252bcef8933891668d508",
+  "templates/agents/review.md": "b77d398c6d1891aa394db314a0e2a97124736ad8ce5f9e9df95ba8d6ec999ab6",
+  "templates/codex/AGENTS.md": "537b82e618b73df6a657daa847fe78deaaf9987af192e89f10b193ca89336111",
+  "templates/codex/agents/arch.toml": "297c63314de285306d55e3db42752c7e947499e75d52a2c3d196b3c403ee3163",
+  "templates/codex/agents/dev.toml": "08459b3b3896dc1f832cd0e59e0cbacedc74c879af1131869b094903aa6041ec",
+  "templates/codex/agents/review.toml": "a70f2a1a361ef862f298aec341e4aa161521df3019d0c5603a30de0af0cc6563",
+  "templates/codex/config.toml": "0308cf84eeff1d809878129a1a3378d8f882fa0d2df8df45eaf3545a02236e06",
+  "templates/codex/skills/develop/SKILL.md": "db6ea6d1a92257b69f69f110a9b60c5f605db86f1e50d16a41b273fb673f9b57",
+  "templates/grok/AGENTS.md": "fc117814cc4e181da8b1f70e5f3325e578e534a09c5a6e8aae0c1f6888b930cb",
+  "templates/grok/agents/arch.md": "9eaddffbeaf2b7edd17e2ec5ec2b7bfac7ef820c0473ff4e3d8c166baa78fb2d",
+  "templates/grok/agents/dev.md": "4b7c9a81916590e211b9310d6a1e201a235eb4b51a8167799792db341eba4eab",
+  "templates/grok/agents/review.md": "6eaf502d456458c8775b50f187ec563cc6ba64e4bf48261bf3e66957778f5e26",
+  "templates/grok/skills/develop/SKILL.md": "9a813a71ad64c882fde156c4e05d5467838db75cca8f647b7f4dfab89d37d3b0",
+  "templates/skills/develop/SKILL.md": "14c23e2a99e8a48cf0cf41497f3536b27282fe8660d94d2a60bb2184e690e746"
+}

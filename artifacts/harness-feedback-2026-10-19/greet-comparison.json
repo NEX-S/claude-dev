@@ -1,0 +1,35 @@
+{
+  "observations": [
+    {
+      "variant": "before",
+      "round_seconds": [
+        27.483,
+        23.008
+      ],
+      "command_counts": [
+        4,
+        3
+      ],
+      "external_pass": true,
+      "only_readme": true
+    },
+    {
+      "variant": "after",
+      "round_seconds": [
+        33.536,
+        20.403
+      ],
+      "command_counts": [
+        4,
+        2
+      ],
+      "external_pass": true,
+      "only_readme": true
+    }
+  ],
+  "interpretation": "Both versions satisfy this targeted negative control; no demonstrated improvement or speed claim from one pair.",
+  "evidence_directories": [
+    "/home/nex/.cache/harness-quality-20261019/greet-before",
+    "/home/nex/.cache/harness-quality-20261019/greet-after"
+  ]
+}

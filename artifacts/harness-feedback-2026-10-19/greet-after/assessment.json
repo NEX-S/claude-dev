@@ -1,0 +1,63 @@
+{
+  "variant": "after",
+  "kind": "single targeted native Codex staged overlay observation",
+  "model": "gpt-6.1-sol",
+  "actual_effort": "medium",
+  "rounds": [
+    {
+      "round": 1,
+      "exit_code": 0,
+      "elapsed_seconds": 33.536,
+      "timed_out": false,
+      "commands": [
+        "/bin/zsh -lc \"pwd; rg --files -g 'AGENTS.md' -g 'greet.py' -g '*test*' -g 'pyproject.toml' -g 'README*'\"",
+        "/bin/zsh -lc 'cat greet.py README.md; git status --short; for p in /home/nex/AGENTS.md /home/nex/.cache/AGENTS.md /home/nex/.cache/harness-quality-20261019/AGENTS.md /home/nex/.cache/harness-quality-20261019/greet-after/AGENTS.md; do if [ -f \"$p\" ]; then cat \"$p\"; fi; done'",
+        "/bin/zsh -lc \"python - <<'PY'\nfrom greet import greeting\n\ncases = [\n    ('Alice', 'Hello, Alice\"'!'\"'),\n    ('  Alice  ', 'Hello, Alice\"'!'\"'),\n    ('\\\\tAlice\\\\n', 'Hello, Alice\"'!'\"'),\n    ('', 'Hello, World\"'!'\"'),\n    (' \\\\t\\\\n ', 'Hello, World\"'!'\"'),\n    ('  Alice  Smith  ', 'Hello, Alice  Smith\"'!'\"'),\n    ('  小明！  ', 'Hello, 小明！！\"'!'\"'),\n]\n# Preserve the original punctuation format around the supplied name.\ncases[-1] = ('  小明！  ', 'Hello, 小明！\"'!'\"')\nfor name, expected in cases:\n    actual = greeting(name)\n    assert actual == expected, (name, actual, expected)\nprint(f'Passed {len(cases)} greeting checks.')\nPY\ncat greet.py\"",
+        "/bin/zsh -lc \"python - <<'PY'\nfrom pathlib import Path\ncache = Path('__pycache__/greet.cpython-311.pyc')\nimport sys\ncache = Path('__pycache__') / f'greet.cpython-{sys.version_info.major}{sys.version_info.minor}.pyc'\ncache.unlink(missing_ok=True)\nfolder = cache.parent\nif folder.exists() and not any(folder.iterdir()):\n    folder.rmdir()\nPY\""
+      ],
+      "completed_command_count": 4,
+      "agent_usage_raw": [
+        {
+          "input_tokens": 102374,
+          "cached_input_tokens": 80640,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 826,
+          "reasoning_output_tokens": 18
+        }
+      ],
+      "delegation_observed": false
+    },
+    {
+      "round": 2,
+      "exit_code": 0,
+      "elapsed_seconds": 20.403,
+      "timed_out": false,
+      "commands": [
+        "/bin/zsh -lc 'cat README.md'",
+        "/bin/zsh -lc \"python - <<'PY'\nfrom pathlib import Path\npath = Path('README.md')\nbefore = path.read_bytes()\nafter = before.replace(b'# Greeting exmaple', b'# Greeting example', 1)\nassert after \"'!= before\npath.write_bytes(after)\nassert path.read_bytes() == before.replace(b'\"'exmaple', b'example', 1)\nprint(path.read_text(), end='')\nprint('Verified: only exmaple → example changed.')\nPY\""
+      ],
+      "completed_command_count": 2,
+      "agent_usage_raw": [
+        {
+          "input_tokens": 174816,
+          "cached_input_tokens": 149248,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1078,
+          "reasoning_output_tokens": 18
+        }
+      ],
+      "delegation_observed": false
+    }
+  ],
+  "external_initial_behavior_assertions_passed": true,
+  "final_greet_source": "def greeting(name):\n    name = name.strip() or \"World\"\n    return f\"Hello, {name}!\"\n",
+  "round2_only_readme_changed": true,
+  "round2_business_test_rerun_observed": false,
+  "round2_behavior_note": "Inspected all completed commands: README reads and typo replacement plus README byte checks only; no greeting import, behavior test or external validation was rerun in round 2. Existing greet.py remained byte-identical.",
+  "limitations": [
+    "One before/after sample per version, run concurrently; no statistical or causal efficiency ranking.",
+    "Small direct task does not require loading develop and does not exercise multi-agent integrated-verification behavior.",
+    "Native user configuration and available tools retained; snapshots and explicit CLI overrides applied equally.",
+    "Raw token usage is recorded without treating cumulative input tokens as reasoning time or billed cost."
+  ]
+}

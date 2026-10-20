@@ -1,0 +1,13 @@
+{
+  "pid": 2290695,
+  "started_at": "2026-10-18T00:21:55.358406+00:00",
+  "timeout_seconds": 300,
+  "staged_overlay": true,
+  "model_override": false,
+  "effort_override": false,
+  "prompt_role_requirement": false,
+  "returncode": 0,
+  "timed_out": false,
+  "elapsed_seconds": 110.794,
+  "ended_at": "2026-10-18T00:23:46.152072+00:00"
+}

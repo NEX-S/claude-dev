@@ -1,0 +1,18 @@
+已完成简化与独立验证，所有修改都在当前临时项目内。README 中的 CLI、输出、失败语义和 SQLite 数据格式均保留，`existing.db` 字节未变。
+
+实际改进：
+
+- 将实现集中到 [tasks.py](/tmp/claude-dev-codex-natural-final-nlvlr7b7/project/tasks.py)，数据流直接为参数解析 → SQLite 操作 → JSON 或 Markdown 输出。
+- 删除 `application.py`、`domain.py`、`persistence.py`、`repository.py`，移除了后端注册、配置包装、多层转发和重复任务模型。这些结构没有当前调用者或其他后端需求。
+- 删除没有恢复动作的重复读重试；失败直接报告原始原因。
+- 保留事务、回滚和连接关闭，并确保提交成功后才输出新增 ID。超出 SQLite 整数范围的 ID 也会以非零退出、原因写入 stderr、stdout 为空的方式失败。
+
+取舍是让 CLI 直接依赖 SQLite，后续修改通常只需查看一个模块；这符合当前本地单用户、单后端的用途。没有新增依赖或功能。
+
+新增 [test_tasks.py](/tmp/claude-dev-codex-natural-final-nlvlr7b7/project/test_tasks.py)，使用标准库和真实 CLI 子进程验证。我独立运行 `python3 -B -m unittest -v`，**6 项全部通过**，覆盖持久化、精确输出、原始空白与 Unicode、无效标题与 ID、数据库错误，以及提交失败时无 stdout 且写入回滚。
+
+此外，我直接验证了 `existing.db` 的 `list`、`export`，并在其临时副本上验证新增任务得到 ID `12`、完成已有任务及读取结果。表结构保持兼容，完整性检查为 `ok`。原库两条记录和自增序号均未变，修改前后 SHA-256 一致：
+
+`8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58`
+
+所有数据修改测试均使用项目内临时数据库，临时文件已清理。未发现尚未解决的功能或兼容性问题。

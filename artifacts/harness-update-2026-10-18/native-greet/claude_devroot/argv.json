@@ -1,0 +1,15 @@
+[
+  "claude",
+  "-p",
+  "--verbose",
+  "--output-format",
+  "stream-json",
+  "--permission-mode",
+  "bypassPermissions",
+  "--settings",
+  "{\"sandbox\":{\"enabled\":false},\"claudeMdExcludes\":[\"/home/nex/.claude-dev/CLAUDE.md\",\"/home/nex/.claude/**\"]}",
+  "--append-system-prompt-file",
+  "/tmp/claude-dev-staged-greet-xarypgly/claude_devroot/evidence/root.rules.md",
+  "--debug-file",
+  "/tmp/claude-dev-staged-greet-xarypgly/claude_devroot/evidence/native-debug.log"
+]

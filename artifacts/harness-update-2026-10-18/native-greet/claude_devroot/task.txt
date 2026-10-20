@@ -1,0 +1,1 @@
+修复 greet.py 的 greeting(name)：去掉姓名首尾空白；清理后为空时使用 World；其他内容保持不变。name 已约定为 str。不增加配置或依赖，验证行为。

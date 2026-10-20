@@ -1,0 +1,74 @@
+{
+  "scope": "Optimize the current three-native-harness personal instructions and skills from primary research; no claim of globally optimal code or measured universal model superiority.",
+  "requirements": {
+    "latest_primary_research": {
+      "evidence": [
+        "docs/research.md",
+        "docs/validation.md"
+      ],
+      "result": "Opened official, original-author and paper sources; dates, applicability and inference boundaries recorded."
+    },
+    "autonomous_full_goal_and_conditional_experts": {
+      "evidence": [
+        "templates/codex/AGENTS.md",
+        "templates/codex/skills/develop/SKILL.md"
+      ],
+      "result": "Full required scope, observable finish, author self-cleanup and conditional specialist ownership retained; independent semantic review found no material conflict."
+    },
+    "direct_architecture_without_unneeded_abstractions": {
+      "evidence": [
+        "templates/codex/agents/arch.toml",
+        "templates/codex/agents/dev.toml",
+        "templates/codex/agents/simplify.toml",
+        "artifacts/harness-feedback-2026-10-19/ledger-after/delivered/tasks.py"
+      ],
+      "result": "Actual code removed single-backend machinery and repeated models while preserving external contracts; line count is not acceptance."
+    },
+    "visible_errors_and_necessary_boundaries": {
+      "evidence": [
+        "artifacts/harness-feedback-2026-10-19/ledger-after/supplement.json",
+        "artifacts/harness-feedback-2026-10-19/ledger-after/followup-check-ledger-followup.json"
+      ],
+      "result": "Observed original SQLite errors, failure exit/stderr/empty stdout, required title checks, data preservation and transactions/cleanup."
+    },
+    "why_only_comments_and_self_cleanup": {
+      "evidence": [
+        "templates/codex/agents/dev.toml",
+        "artifacts/harness-feedback-2026-10-19/ledger-after/delivered/tasks.py",
+        "artifacts/harness-feedback-2026-10-19/ledger-process-review.json"
+      ],
+      "result": "Actual direct path has a non-obvious commit/output why comment and no narration comments; obsolete modules removed."
+    },
+    "proportional_validation_and_honest_behavior_evaluation": {
+      "evidence": [
+        "templates/codex/skills/develop/SKILL.md",
+        "artifacts/harness-feedback-2026-10-19/greet-comparison.json",
+        "artifacts/harness-feedback-2026-10-19/ledger-process-review.json"
+      ],
+      "result": "Policy clarified and negatives/functional trials pass; evidence does not establish universal speedup or parent reuse. Small parent rerun recorded as uncertain necessity."
+    },
+    "continued_feature_development": {
+      "evidence": [
+        "artifacts/harness-feedback-2026-10-19/ledger-followup-task.txt",
+        "artifacts/harness-feedback-2026-10-19/ledger-after/followup-result.json",
+        "artifacts/harness-feedback-2026-10-19/ledger-after/project/tasks.py"
+      ],
+      "result": "New rename behavior 7/7 plus 22 original checks; changed existing parsing/SQL without second state/storage mechanism."
+    },
+    "three_native_profiles_and_personal_choices": {
+      "evidence": [
+        "artifacts/harness-feedback-2026-10-19/local-suite.log",
+        "artifacts/harness-feedback-2026-10-19/installed-resources.json",
+        "artifacts/harness-feedback-2026-10-19/installed-codex-check.json",
+        "artifacts/harness-feedback-2026-10-19/install-repeat.log"
+      ],
+      "result": "49 local/native checks, three skill formats, real install, exact root loading once, choices and base configurations preserved; repeat is no-op."
+    }
+  },
+  "remaining_required_work": [],
+  "limitations": [
+    "One paired sample per scenario; no statistical speedup claim.",
+    "Claude/Grok cloud code-quality behavior not newly measured; local native integration checked.",
+    "Existing sessions may retain their loaded instructions; future sessions use published resources."
+  ]
+}

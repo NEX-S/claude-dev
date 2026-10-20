@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python3",
+    "-B",
+    "-c",
+    "from greet import greeting; assert greeting(\" Ada \") == \"Hello, Ada!\"; assert greeting(\" \\t\") == \"Hello, World!\"; assert greeting(\"李 四\") == \"Hello, 李 四!\""
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    from greet import greeting; assert greeting(\" Ada \") == \"Hello, Ada!\"; assert greeting(\" \\t\") == \"Hello, World!\"; assert greeting(\"李 四\") == \"Hello, 李 四!\"\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+}

@@ -1,0 +1,11 @@
+已修改 [greet.py](/home/nex/.cache/harness-quality-20261019/greet-after/project/greet.py:1)：
+
+```python
+def greeting(name):
+    name = name.strip() or "World"
+    return f"Hello, {name}!"
+```
+
+使用 `strip()` 去掉姓名首尾空白，清理后为空则使用 `"World"`；姓名内部空白、其他内容及原有问候格式均保持不变。按 `name` 为 `str` 的约定处理，未增加配置或依赖。
+
+已运行并通过 7 个断言，覆盖普通姓名、首尾空格、制表符和换行、空字符串、纯空白、内部连续空格，以及中文和标点。

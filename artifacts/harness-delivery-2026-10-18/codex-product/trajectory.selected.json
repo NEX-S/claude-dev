@@ -1,0 +1,13 @@
+{
+  "native_item_types": {
+    "agent_message": 4,
+    "command_execution": 4,
+    "error": 2,
+    "file_change": 1
+  },
+  "native_turn_completed": true,
+  "agent_calls_observed": false,
+  "planning_calls_observed": false,
+  "develop_read_observed": false,
+  "self_inspection_observed": true
+}

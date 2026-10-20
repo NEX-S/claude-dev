@@ -1,0 +1,74 @@
+{
+  "parent_pid": 2773925,
+  "parent_reaped": true,
+  "observed_descendants": {
+    "2773925": {
+      "state": "S",
+      "ppid": 2773895,
+      "pgrp": 2773925,
+      "start_ticks": 66133020
+    },
+    "2773932": {
+      "state": "Z",
+      "ppid": 2773925,
+      "pgrp": 2773925,
+      "start_ticks": 66133027
+    },
+    "2774092": {
+      "state": "S",
+      "ppid": 2774067,
+      "pgrp": 2774067,
+      "start_ticks": 66133088
+    },
+    "2774067": {
+      "state": "S",
+      "ppid": 2773932,
+      "pgrp": 2774067,
+      "start_ticks": 66133085
+    },
+    "2774068": {
+      "state": "S",
+      "ppid": 2773932,
+      "pgrp": 2774068,
+      "start_ticks": 66133085
+    },
+    "2774107": {
+      "state": "S",
+      "ppid": 2774068,
+      "pgrp": 2774068,
+      "start_ticks": 66133095
+    },
+    "2774142": {
+      "state": "S",
+      "ppid": 2774107,
+      "pgrp": 2774068,
+      "start_ticks": 66133096
+    },
+    "2775287": {
+      "state": "S",
+      "ppid": 2773932,
+      "pgrp": 2775287,
+      "start_ticks": 66133918
+    },
+    "2779422": {
+      "state": "S",
+      "ppid": 2773932,
+      "pgrp": 2779422,
+      "start_ticks": 66137325
+    },
+    "2779488": {
+      "state": "R",
+      "ppid": 2779422,
+      "pgrp": 2779422,
+      "start_ticks": 66137354
+    },
+    "2779497": {
+      "state": "R",
+      "ppid": 2779422,
+      "pgrp": 2779422,
+      "start_ticks": 66137380
+    }
+  },
+  "remaining_known_live": {},
+  "remaining_group_live": {}
+}

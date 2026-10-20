@@ -1,0 +1,25 @@
+已完成，入口为当前项目中的 [tasks.py](/tmp/codex-harness-pair-a8dnefl_/old/project/tasks.py)，仅使用 Python 标准库，无需安装依赖。
+
+```bash
+python3 tasks.py --db ./tasks.db add "买牛奶 和面包"
+# 输出整数 ID，例如 1
+
+python3 tasks.py --db ./tasks.db list
+# [{"id": 1, "title": "买牛奶 和面包", "done": false}]
+
+python3 tasks.py --db ./tasks.db done 1
+# 成功时无输出
+
+python3 tasks.py --db ./tasks.db export
+# - [x] 买牛奶 和面包
+```
+
+设计上使用 `argparse` 处理命令行、`sqlite3` 保存数据。数据库首次使用时自动建表；写入事务提交成功后才输出成功结果。标题原样保存，使用 `strip()` 判断并拒绝空白标题；SQL 使用参数绑定。`list` 和 `export` 均显式按 ID 递增排序，重复完成已有任务可正常成功。
+
+已通过 [test_tasks.py](/tmp/codex-harness-pair-a8dnefl_/old/project/test_tasks.py) 的全部 3 项集成测试，每次命令调用均启动独立进程，实际检查了：
+
+- 跨调用持久化、整数 ID、中文及带空格和引号的标题。
+- JSON 字段恰为 `id/title/done`，`done` 为布尔值；Markdown 输出逐字匹配。
+- 空白标题、不存在或非法 ID、缺失参数、未知命令和数据库路径或文件异常，均非零退出、stderr 有原因、stdout 为空；无效操作不改变已有任务。
+
+复验命令为 `python3 -B -m unittest -v`，结果全部通过。最终仅保留实现和测试两个文件。

@@ -1,0 +1,16 @@
+{
+  "session_context_type": "dict",
+  "session_context_keys": [],
+  "prompt_snapshot": {
+    "native_transcript": "/home/nex/.claude-dev/projects/-tmp-claude-dev-staged-greet-xarypgly-claude-devroot-project/a0d4fa5d-ceb8-4ac5-a9c3-6c0c99eacafd.jsonl",
+    "attachment_type": "prompt_snapshot",
+    "system_prompt_type": "list",
+    "system_prompt_length": 11196,
+    "system_prompt_sha256": "46ce5d9d4cf18980bf8d361306227cd9289314a4db92d96003633e13d0939a43",
+    "exact_staged_root_occurrences": 1,
+    "staged_develop_absolute_link_present": true,
+    "excluded_old_root_path_present": false,
+    "excluded_default_claude_path_present": false,
+    "memory_contents_paths": []
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-10-18T20:53:54.860383+00:00",
+  "timeout_seconds": 180,
+  "pid": 2293281,
+  "timed_out": false,
+  "returncode": 0,
+  "elapsed_seconds": 53.269,
+  "check-ledger-followup": {
+    "returncode": 0,
+    "passed": 7
+  },
+  "acceptance": {
+    "returncode": 0,
+    "passed": 14
+  },
+  "supplement": {
+    "returncode": 0,
+    "passed": 8
+  },
+  "existing_db_unchanged": true
+}

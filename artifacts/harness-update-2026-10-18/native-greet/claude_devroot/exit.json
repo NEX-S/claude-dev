@@ -1,0 +1,12 @@
+{
+  "client": "claude_devroot",
+  "native_pid": 1762134,
+  "supervisor_pid": 1762130,
+  "start_epoch": 1792277805.1294198,
+  "bounded_timeout_s": 180,
+  "runtime_config_dir": "/home/nex/.claude-dev",
+  "bounded_stop": false,
+  "exit_code": 1,
+  "end_epoch": 1792277805.9951756,
+  "elapsed_seconds": 0.8657567501068115
+}

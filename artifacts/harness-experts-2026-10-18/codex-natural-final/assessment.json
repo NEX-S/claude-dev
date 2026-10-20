@@ -1,0 +1,115 @@
+{
+  "experiment": "One native Codex natural user request over the unchanged working SQLite seed with final current templates. User prompt does not mention roles.",
+  "evidence_directory": "artifacts/harness-experts-2026-10-18/codex-natural-final",
+  "staged_overlay": true,
+  "runs": 1,
+  "timeout_seconds": 300,
+  "native_exit": {
+    "pid": 2290695,
+    "started_at": "2026-10-18T00:21:55.358406+00:00",
+    "timeout_seconds": 300,
+    "staged_overlay": true,
+    "model_override": false,
+    "effort_override": false,
+    "prompt_role_requirement": false,
+    "returncode": 0,
+    "timed_out": false,
+    "elapsed_seconds": 110.794,
+    "ended_at": "2026-10-18T00:23:46.152072+00:00"
+  },
+  "native_process_group_live": false,
+  "models": [
+    {
+      "origin": "parent",
+      "timestamp": "2026-10-18T00:22:01.470Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium"
+    },
+    {
+      "origin": "simplify",
+      "timestamp": "2026-10-18T00:22:11.504Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium"
+    },
+    {
+      "origin": "simplify",
+      "timestamp": "2026-10-18T00:22:14.894Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium"
+    }
+  ],
+  "parent_thread_id": "01a14c62-f406-74a2-9890-646b3be430e4",
+  "simplify_thread_id": "01a14c63-312f-74c1-ae39-d643d04d4778",
+  "actual_spawn_arguments": {
+    "task_name": "simplify_ledger",
+    "agent_type": "simplify",
+    "fork_turns": "all"
+  },
+  "exact_role_body_in_developer_message": true,
+  "baseline": {
+    "original_acceptance_passed": 14,
+    "supplement_passed": 8
+  },
+  "final": {
+    "original_acceptance_passed": 14,
+    "supplement_passed": 8
+  },
+  "existing_db_sha256": "8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58",
+  "existing_db_bytes_unchanged": true,
+  "readme_bytes_unchanged": true,
+  "frozen_input_hashes_verified_after_run": true,
+  "task_bytes_identical_to_grok_natural_before": true,
+  "final_template_manifest_matches_repository_after_run": true,
+  "ownership_and_independence": {
+    "parent_pre_dispatch_calls": [
+      {
+        "timestamp": "2026-10-18T00:22:04.608Z",
+        "input": "text(await tools.exec_command({cmd:\"pwd && rg --files -g 'AGENTS.md' -g '*' -g '! .git'\",\"max_output_tokens\":5000}));text(await tools.exec_command({cmd:\"cat /tmp/claude-dev-codex-natural-final-nlvlr7b7/staged-codex/skills/develop/SKILL.md\",\"max_output_tokens\":7000}));\n"
+      }
+    ],
+    "parent_pre_dispatch_inspection": "Only project path/file discovery and develop skill; no implementation edit or source architecture analysis before spawn.",
+    "fork_turns": "all",
+    "strict_fresh_context_proven": false,
+    "reason": "fork_turns=all inherits parent history. The three subsequent messages and initial brief have encrypted payloads in native records, so their exact structure guidance cannot be audited.",
+    "same_actual_child_owned_source_and_tests": true,
+    "parent_acceptance": "Parent read final implementation/tests, independently reran the six user-path tests, then executed its own real-CLI/database compatibility check. Frozen outer acceptance additionally passed 22 checks.",
+    "followup_product_repair_exercised": false
+  },
+  "quality_inspection": {
+    "before_real_path": "CLI -> TaskGateway -> TaskService -> TaskRepository -> SQLiteBackend -> ConnectionFactory/DatabaseLocation; reads TaskRow -> Task -> mapping/markdown projection",
+    "after_real_path": "tasks.main -> argparse -> SQLite transaction -> direct rows-to-JSON/Markdown -> output after commit and close",
+    "removed_mechanisms": [
+      "Gateway/service/repository forwarding",
+      "Single-backend registry and settings/path/connection wrappers",
+      "Intermediate TaskRow/Task data and duplicated done/marker state",
+      "Projection that recopies an existing mapping",
+      "Read retry without a recovery action"
+    ],
+    "preserved": [
+      "Required CLI and existing SQLite data/schema",
+      "Title boundary validation and parameterized SQL",
+      "Commit before success output, connection cleanup, original errors"
+    ],
+    "added_artifact": "test_tasks.py with six real CLI regression tests, all passed by author and parent.",
+    "boundary_reporting_choice": "OverflowError was included in the first rewrite; no preceding product failure or later repair was observed.",
+    "nonblocking_test_choices": "Model tests also fix incidental current properties: fresh IDs 1/2, repeat-done no-op, invalid blank title not creating a DB. These are not upgraded into external requirements or used to claim extra product scope.",
+    "material_findings": [],
+    "not_scored_by": [
+      "LOC",
+      "file count",
+      "role call count",
+      "modification quota"
+    ]
+  },
+  "observed_nonproduct_failures": [
+    "Parent git status reported that seed is not a git repository; parent proceeded without changing evaluation setup.",
+    "Parent broad /tmp AGENTS file search exited 2 with stderr redirected. It did not change artifacts and does not establish useful task work."
+  ],
+  "limits": [
+    "One natural run does not establish reliable autonomous role choice across tasks.",
+    "fork_turns=all and encrypted inter-agent payloads prevent claiming a strictly independent fresh context.",
+    "Does not validate all research/design/develop/simplify stages on a greenfield build.",
+    "No cross-model or old/new causal superiority claim.",
+    "No product repair was required, so same-owner repair continuity was not behaviorally exercised."
+  ]
+}

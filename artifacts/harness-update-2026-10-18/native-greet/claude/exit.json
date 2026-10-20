@@ -1,0 +1,11 @@
+{
+  "client": "claude",
+  "native_pid": 1746269,
+  "supervisor_pid": 1746267,
+  "start_epoch": 1792277670.2140787,
+  "bounded_timeout_s": 180,
+  "bounded_stop": false,
+  "exit_code": 1,
+  "end_epoch": 1792277671.0297563,
+  "elapsed_seconds": 0.8156781196594238
+}

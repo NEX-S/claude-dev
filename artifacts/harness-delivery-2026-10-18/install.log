@@ -1,0 +1,28 @@
+Backup: /home/nex/.local/state/claude-dev/backups/install-Hl6DJP
+  backed up: /home/nex/.claude-dev/CLAUDE.md -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.claude-dev/CLAUDE.md
+  wrote: /home/nex/.claude-dev/CLAUDE.md
+  backed up: /home/nex/.claude-dev/agents -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.claude-dev/agents
+  wrote: /home/nex/.claude-dev/agents
+  backed up: /home/nex/.claude-dev/skills -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.claude-dev/skills
+  wrote: /home/nex/.claude-dev/skills
+  backed up: /home/nex/.codex-dev/AGENTS.md -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.codex-dev/AGENTS.md
+  wrote: /home/nex/.codex-dev/AGENTS.md
+  backed up: /home/nex/.codex/dev.config.toml -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.codex/dev.config.toml
+  wrote: /home/nex/.codex/dev.config.toml
+  backed up: /home/nex/.codex-dev/agents -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.codex-dev/agents
+  wrote: /home/nex/.codex-dev/agents
+  backed up: /home/nex/.codex-dev/skills/develop -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.codex-dev/skills/develop
+  wrote: /home/nex/.codex-dev/skills/develop
+  backed up: /home/nex/.grok-dev/AGENTS.md -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.grok-dev/AGENTS.md
+  wrote: /home/nex/.grok-dev/AGENTS.md
+  backed up: /home/nex/.grok/agents/arch.md -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.grok/agents/arch.md
+  wrote: /home/nex/.grok/agents/arch.md
+  backed up: /home/nex/.grok/agents/dev.md -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.grok/agents/dev.md
+  wrote: /home/nex/.grok/agents/dev.md
+  wrote: /home/nex/.grok/agents/research.md
+  backed up: /home/nex/.grok/agents/review.md -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.grok/agents/review.md
+  wrote: /home/nex/.grok/agents/review.md
+  wrote: /home/nex/.grok/agents/simplify.md
+  backed up: /home/nex/.grok-dev/skills -> /home/nex/.local/state/claude-dev/backups/install-Hl6DJP/.grok-dev/skills
+  wrote: /home/nex/.grok-dev/skills
+Installed claude-dev, codex-dev, grok-dev. Ensure /home/nex/.local/bin is on PATH.

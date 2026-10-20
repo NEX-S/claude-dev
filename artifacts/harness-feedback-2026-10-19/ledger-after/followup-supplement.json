@@ -1,0 +1,125 @@
+{
+  "passed": 8,
+  "checks": [
+    {
+      "check": "existing database reads exact original rows",
+      "passed": true,
+      "detail": {
+        "args": [
+          "/usr/bin/python",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/project/existing.db",
+          "list"
+        ],
+        "returncode": 0,
+        "stdout": "[{\"id\": 7, \"title\": \" 旧任务 中文 \", \"done\": false}, {\"id\": 11, \"title\": \"finished task\", \"done\": true}]\n",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "existing database exports exact original titles",
+      "passed": true,
+      "detail": {
+        "args": [
+          "/usr/bin/python",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/project/existing.db",
+          "export"
+        ],
+        "returncode": 0,
+        "stdout": "- [ ]  旧任务 中文 \n- [x] finished task\n",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "existing database bytes remain unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "existing database accepts new task without reset",
+      "passed": true,
+      "detail": {
+        "args": [
+          "/usr/bin/python",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/simplify-supplement-f995wgza/existing-copy.db",
+          "add",
+          " appended "
+        ],
+        "returncode": 0,
+        "stdout": "12\n",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "existing task completes after reopen",
+      "passed": true,
+      "detail": {
+        "args": [
+          "/usr/bin/python",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/simplify-supplement-f995wgza/existing-copy.db",
+          "done",
+          "7"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "existing rows and appended title survive mutation",
+      "passed": true,
+      "detail": {
+        "args": [
+          "/usr/bin/python",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/simplify-supplement-f995wgza/existing-copy.db",
+          "list"
+        ],
+        "returncode": 0,
+        "stdout": "[{\"id\": 7, \"title\": \" 旧任务 中文 \", \"done\": true}, {\"id\": 11, \"title\": \"finished task\", \"done\": true}, {\"id\": 12, \"title\": \" appended \", \"done\": false}]\n",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "corrupt database exposes original SQLite cause without success",
+      "passed": true,
+      "detail": {
+        "args": [
+          "/usr/bin/python",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/simplify-supplement-f995wgza/broken.db",
+          "list"
+        ],
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "error: file is not a database\n"
+      }
+    },
+    {
+      "check": "unopenable database exposes original SQLite cause without success",
+      "passed": true,
+      "detail": {
+        "args": [
+          "/usr/bin/python",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-after/simplify-supplement-f995wgza/missing-parent/tasks.db",
+          "add",
+          "must fail"
+        ],
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "error: unable to open database file\n"
+      }
+    }
+  ]
+}

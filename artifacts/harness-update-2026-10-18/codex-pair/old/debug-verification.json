@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "root_instructions_present": true,
+  "absolute_develop_present": true,
+  "roles_present": true,
+  "matching_root_blocks": 1,
+  "role_descriptions_present": {
+    "agents.arch.description": false,
+    "agents.dev.description": false,
+    "agents.review.description": false
+  }
+}

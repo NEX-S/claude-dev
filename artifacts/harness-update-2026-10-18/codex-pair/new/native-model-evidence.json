@@ -1,0 +1,14 @@
+{
+  "native_rollout": "/home/nex/.codex/sessions/2026/10/18/rollout-2026-10-18T06-54-58-01a14c13-56a6-7570-b085-5a63a266928b.jsonl",
+  "turn_contexts": [
+    {
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "cwd": "/tmp/codex-harness-pair-a8dnefl_/new/project",
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "danger-full-access"
+      }
+    }
+  ]
+}

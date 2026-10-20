@@ -1,0 +1,27 @@
+已完成简化、验证和必要检查，所有改动都限于当前临时项目。`existing.db` 保持字节级原样，README 未修改。
+
+实现现在集中在 [tasks.py](/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py)：解析 CLI 参数、直接执行 SQLite 操作、格式化结果并输出。删除了 `application.py`、`domain.py`、`persistence.py`、`repository.py`，移除了单一后端下多余的注册器、工厂、仓储、服务、网关，以及查询结果在多个模型间的重复转换。没有恢复作用的读取重试也已删除，数据库失败直接报告原始原因。
+
+必要取舍是让 CLI 与 SQLite 操作共处一条直接的执行路径，不再维护当前用途不需要的库接口和存储扩展层。仍保留参数化 SQL、事务回滚和连接关闭；成功结果在事务提交、连接关闭之后才输出，避免提交失败时已经打印任务 ID。
+
+新增了 [test_tasks.py](/home/nex/.cache/harness-quality-20261019/ledger-before/project/test_tasks.py)，通过真实 CLI 子进程验证行为。我在集成后重新运行了：
+
+```text
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v
+Ran 8 tests in 6.267s — OK
+```
+
+检查覆盖：
+
+- 跨调用持久化、标题原始空白和 Unicode、按 ID 排序、JSON 恰含 `id/title/done` 且 `done` 为布尔、Markdown 输出。
+- 空数据库、重复完成任务、纯空白标题、缺失 ID、参数错误、无法打开及损坏的数据库。
+- SQLite 触发器拒绝写入和锁冲突导致提交失败：均非零退出、stderr 保留原始原因、stdout 严格为空；失败写入已回滚。
+- 在项目内临时副本上验证现有数据读取、继续分配自增 ID、完成已有任务，以及 SQLite schema 保持不变。测试读取原库的当前内容进行比较，没有将今天的数据固化为长期测试前提。
+
+还直接核对了原库的 `list`、`export` 输出，ID 7、11 的标题、空白和完成状态均正确。原库验证前后的 SHA-256 一致：
+
+```text
+8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58
+```
+
+所有会修改数据的测试都使用项目内临时数据库，临时目录已清理；没有已知待修复问题。

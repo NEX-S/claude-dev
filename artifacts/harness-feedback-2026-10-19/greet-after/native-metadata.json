@@ -1,0 +1,33 @@
+{
+  "thread": {
+    "id": "01a150c7-7cf7-7822-876a-517177c76048",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "medium",
+    "rollout_path": "/home/nex/.codex/sessions/2026/10/19/rollout-2026-10-19T04-50-15-01a150c7-7cf7-7822-876a-517177c76048.jsonl",
+    "cwd": "/home/nex/.cache/harness-quality-20261019/greet-after/project"
+  },
+  "turn_contexts": [
+    {
+      "line": 8,
+      "timestamp": "2026-10-18T20:50:18.737Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "reasoning_effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "danger-full-access"
+      }
+    },
+    {
+      "line": 47,
+      "timestamp": "2026-10-18T20:50:50.886Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "reasoning_effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "danger-full-access"
+      }
+    }
+  ]
+}

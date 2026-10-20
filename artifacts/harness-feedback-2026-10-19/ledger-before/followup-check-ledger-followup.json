@@ -1,0 +1,33 @@
+{
+  "passed": 7,
+  "checks": [
+    {
+      "check": "rename succeeds with empty stdout",
+      "passed": true
+    },
+    {
+      "check": "exact title, ID and unfinished state survive reopening",
+      "passed": true
+    },
+    {
+      "check": "other task unchanged",
+      "passed": true
+    },
+    {
+      "check": "blank title fails visibly without mutation",
+      "passed": true
+    },
+    {
+      "check": "missing ID fails visibly without mutation",
+      "passed": true
+    },
+    {
+      "check": "completed task retains ID and done state",
+      "passed": true
+    },
+    {
+      "check": "original database unchanged",
+      "passed": true
+    }
+  ]
+}

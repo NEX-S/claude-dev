@@ -1,0 +1,92 @@
+{
+  "variant": "before",
+  "first": {
+    "started_utc": "2026-10-18T20:50:12.722754+00:00",
+    "finished_utc": "2026-10-18T20:50:40.206215+00:00",
+    "exit_code": 0,
+    "elapsed_seconds": 27.483,
+    "timeout": false,
+    "process_group_before_termination": [],
+    "process_group_after": [],
+    "thread_id": "01a150c7-7ce7-77e1-a0a3-2886a1ed27be",
+    "event_types": [
+      "thread.started",
+      "item.completed",
+      "item.completed",
+      "turn.started",
+      "item.completed",
+      "item.started",
+      "item.completed",
+      "item.started",
+      "item.completed",
+      "item.started",
+      "item.completed",
+      "item.started",
+      "item.completed",
+      "item.started",
+      "item.completed",
+      "item.completed",
+      "turn.completed"
+    ]
+  },
+  "external_checks": {
+    "argv": [
+      "python3",
+      "-B",
+      "-c",
+      "from greet import greeting; assert greeting(\" Ada \") == \"Hello, Ada!\"; assert greeting(\" \\t\") == \"Hello, World!\"; assert greeting(\"李 四\") == \"Hello, 李 四!\""
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "second": {
+    "started_utc": "2026-10-18T20:50:40.235744+00:00",
+    "finished_utc": "2026-10-18T20:51:03.243815+00:00",
+    "exit_code": 0,
+    "elapsed_seconds": 23.008,
+    "timeout": false,
+    "process_group_before_termination": [],
+    "process_group_after": [],
+    "thread_id": "01a150c7-7ce7-77e1-a0a3-2886a1ed27be",
+    "event_types": [
+      "thread.started",
+      "item.completed",
+      "item.completed",
+      "turn.started",
+      "item.completed",
+      "item.started",
+      "item.completed",
+      "item.started",
+      "item.completed",
+      "item.started",
+      "item.completed",
+      "item.completed",
+      "turn.completed"
+    ]
+  },
+  "native_turns": [
+    {
+      "line": 8,
+      "timestamp": "2026-10-18T20:50:18.639Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "reasoning_effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "danger-full-access"
+      }
+    },
+    {
+      "line": 41,
+      "timestamp": "2026-10-18T20:50:44.914Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "reasoning_effort": null,
+      "approval_policy": "never",
+      "sandbox_policy": {
+        "type": "danger-full-access"
+      }
+    }
+  ]
+}

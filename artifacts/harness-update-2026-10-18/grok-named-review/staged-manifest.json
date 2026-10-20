@@ -1,0 +1,13 @@
+{
+  "trial_kind": "Grok1.0.52原生具名spawn_subagent.subagent_type路由staged补证，非已发布wrapper结果",
+  "source_revision": "c8ca1dfac7a5a388f25b501f758113fa014bfd0e",
+  "source_diff_sha256": "a2ddafec12acc5d9304a3984f05e4d4a1ba5ac46b74df0709410ff129e594f19",
+  "sha256": {
+    ".grok/agents/arch.md": "9eaddffbeaf2b7edd17e2ec5ec2b7bfac7ef820c0473ff4e3d8c166baa78fb2d",
+    ".grok/agents/dev.md": "4b7c9a81916590e211b9310d6a1e201a235eb4b51a8167799792db341eba4eab",
+    ".grok/agents/review.md": "6eaf502d456458c8775b50f187ec563cc6ba64e4bf48261bf3e66957778f5e26",
+    ".grok/skills/develop/SKILL.md": "9a813a71ad64c882fde156c4e05d5467838db75cca8f647b7f4dfab89d37d3b0",
+    "greet.py": "dec4e6d4c1aadbcf09c4d45eb2639e5c2b4a7e4016389e5b38c8b75737e00e94"
+  },
+  "root_sha256": "aa246c29db76c818d7da3dcb2711596d81dfd57ffc37576693922b5519bf6ec4"
+}

@@ -1,0 +1,1 @@
+新增一个当前需要的命令：tasks.py --db PATH rename ID TITLE，修改已有任务的标题，保留原始空白和Unicode。成功时stdout为空，任务ID和完成状态不变；拒绝纯空白标题和不存在的ID，失败须非零退出、stderr有原因、stdout为空。保留其余CLI行为和SQLite数据格式，existing.db必须原样保留，修改数据的检查用副本。只在当前临时项目内工作，自行验证后交付。

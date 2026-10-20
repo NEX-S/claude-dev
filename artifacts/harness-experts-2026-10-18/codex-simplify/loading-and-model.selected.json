@@ -1,0 +1,31 @@
+{
+  "models": [
+    {
+      "origin": "parent",
+      "timestamp": "2026-10-18T00:05:28.084Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium"
+    },
+    {
+      "origin": "simplify",
+      "timestamp": "2026-10-18T00:05:58.459Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium"
+    }
+  ],
+  "role_body": [
+    {
+      "record_type": "response_item",
+      "path": ".payload.content[0].text",
+      "role_body_sha256": "28cc612d54a354e608eb0e1654f98c240cfebc090bc68dfce3e1a09b8ece60fb",
+      "occurrences": 1
+    },
+    {
+      "record_type": "event_msg",
+      "path": ".payload.item.aggregated_output",
+      "role_body_sha256": "28cc612d54a354e608eb0e1654f98c240cfebc090bc68dfce3e1a09b8ece60fb",
+      "occurrences": 1
+    }
+  ],
+  "exact_simplify_body_in_developer_message": true
+}

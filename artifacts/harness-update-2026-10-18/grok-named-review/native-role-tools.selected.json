@@ -1,0 +1,84 @@
+{
+  "parent": {
+    "session_id": "01a14c18-3372-7330-81f9-b712ce405268",
+    "native_record_dir": "/home/nex/.grok/sessions/%2Ftmp%2Fgrok-native-review-selector-uk1azsyg%2Fproject/01a14c18-3372-7330-81f9-b712ce405268",
+    "summary": {
+      "agent_id": "ag1.5eb7603533e42978ecdeff36ab2e259",
+      "current_model_id": "grok-4.7",
+      "session_kind": "headless",
+      "agent_name": "grok-build-plan",
+      "sandbox_profile": "off",
+      "reasoning_effort": "high",
+      "num_messages": 19,
+      "num_chat_messages": 14
+    },
+    "tool_names": [
+      "run_terminal_command",
+      "read_file",
+      "search_replace",
+      "list_dir",
+      "grep",
+      "kill_command_or_subagent",
+      "todo_write",
+      "get_command_or_subagent_output",
+      "spawn_subagent",
+      "scheduler_create",
+      "scheduler_delete",
+      "scheduler_list",
+      "monitor",
+      "search_tool",
+      "use_tool",
+      "workflow",
+      "enter_plan_mode",
+      "exit_plan_mode",
+      "ask_user_question",
+      "send_feedback",
+      "web_fetch",
+      "image_gen",
+      "image_edit",
+      "image_to_video",
+      "reference_to_video",
+      "write"
+    ],
+    "tool_count": 26,
+    "system_prompt_sha256": "b7e0577101500b15f33d0f69e759a2dd0878956e7718ab30e126a1c748d75620",
+    "staged_review_body_occurrences": 0,
+    "staged_root_occurrences": 1,
+    "spawn_subagent_selector_schema": {
+      "type": "string",
+      "enum": [
+        "arch",
+        "dev",
+        "review"
+      ],
+      "description": "Omit for a general-purpose subagent. Set it to hand the task to one of these agents:\n- arch: Resolve a consequential design question or focused research need; choose the least complex complete approach.\n- dev: Implement an independent outcome with direct code, appropriate verification and necessary repairs.\n- review: Review actual behavior and design necessity; identify concrete defects or avoidable complexity without adding speculative guarantees."
+    },
+    "spawn_subagent_schema_required": [
+      "prompt",
+      "description"
+    ]
+  },
+  "child": {
+    "session_id": "01a14c18-847d-7bc3-880b-1d099c9ff373",
+    "native_record_dir": "/home/nex/.grok/sessions/%2Ftmp%2Fgrok-native-review-selector-uk1azsyg%2Fproject/01a14c18-847d-7bc3-880b-1d099c9ff373",
+    "summary": {
+      "agent_id": "01a14c18-847d-7bc3-880b-1d099c9ff373",
+      "current_model_id": "grok-4.7",
+      "session_kind": "subagent",
+      "agent_name": "review",
+      "sandbox_profile": "off",
+      "reasoning_effort": "high",
+      "num_messages": 10,
+      "num_chat_messages": 8
+    },
+    "tool_names": [
+      "read_file",
+      "list_dir",
+      "grep"
+    ],
+    "tool_count": 3,
+    "system_prompt_sha256": "43be9fb6e88b3d789d979d3375d37fd1e12f88a285b93cbe241de528f351ba55",
+    "staged_review_body_occurrences": 1,
+    "staged_root_occurrences": 0
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "thread_id": "01a14ca6-cb64-7523-939b-46e6001a3f6b",
+  "session_path": "/home/nex/.codex/sessions/2026/10/18/rollout-2026-10-18T09-36-01-01a14ca6-cb64-7523-939b-46e6001a3f6b.jsonl",
+  "models": [
+    {
+      "timestamp": "2026-10-18T01:36:07.072Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "cwd": "/tmp/claude-dev-codex-product-hwfovkb7/project"
+    }
+  ],
+  "root_injection": [
+    {
+      "timestamp": "2026-10-18T01:36:07.068Z",
+      "exact_root_occurrences": 1,
+      "root_sha256": "e2bb8203f17194010785526bb731f80813036b47d1ab74ebb6b47375fc17e4e3"
+    }
+  ],
+  "task_complete": [
+    {
+      "type": "task_complete",
+      "turn_id": "01a14ca6-d185-7043-8c74-d264bdda4543",
+      "duration_ms": 50939,
+      "started_at": 1792287363,
+      "completed_at": 1792287414
+    }
+  ],
+  "tool_calls": [
+    {
+      "timestamp": "2026-10-18T01:36:10.300Z",
+      "type": "custom_tool_call",
+      "name": "exec",
+      "nested_tool_names": [
+        "exec_command"
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T01:36:11.999Z",
+      "type": "custom_tool_call",
+      "name": "exec",
+      "nested_tool_names": [
+        "exec_command"
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T01:36:35.239Z",
+      "type": "custom_tool_call",
+      "name": "exec",
+      "nested_tool_names": [
+        "apply_patch"
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T01:36:44.370Z",
+      "type": "custom_tool_call",
+      "name": "exec",
+      "nested_tool_names": [
+        "exec_command"
+      ]
+    },
+    {
+      "timestamp": "2026-10-18T01:36:48.240Z",
+      "type": "custom_tool_call",
+      "name": "exec",
+      "nested_tool_names": [
+        "exec_command"
+      ]
+    }
+  ]
+}

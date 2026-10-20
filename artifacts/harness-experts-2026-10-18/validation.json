@@ -1,0 +1,82 @@
+{
+  "scope": "Research and implement a flexible project workflow and active simplification in Claude/Codex/Grok native profiles.",
+  "local_suite": {
+    "tests": 48,
+    "failures": 0,
+    "skipped": 0,
+    "seconds": 30.389,
+    "command": "CLAUDE_DEV_TEST_CLI=1 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v",
+    "log": "local-suite.log"
+  },
+  "versions": {
+    "claude": "2.1.302",
+    "codex": "0.163.0",
+    "grok": "1.0.52"
+  },
+  "new_roles": [
+    "research",
+    "simplify"
+  ],
+  "native_role_set": [
+    "research",
+    "arch",
+    "dev",
+    "simplify",
+    "review"
+  ],
+  "installation": {
+    "staged": "staged-install.json",
+    "live_home_published": false,
+    "installer_source_changed_this_goal": false
+  },
+  "skill_format": {
+    "claude": "valid",
+    "codex": "valid",
+    "grok": "valid"
+  },
+  "semantic_review": "3 roots, 3 develop files, 15 roles and Codex registrations passed independent review, including later narrow baseline/ownership correction.",
+  "initial_failure": {
+    "tests": 48,
+    "seconds": 38.837,
+    "test": "Grok discovery on both ordinary and development entries",
+    "cause": "Unquoted colon in simplify YAML description prevented native discovery. Discovery description corrected without weakening the test; final suite passed."
+  },
+  "experiments": {
+    "codex_explicit": "codex-simplify/assessment.json",
+    "grok_natural_before": "grok-natural-before/assessment.json",
+    "grok_natural_after": "grok-natural-after/assessment.json",
+    "codex_natural_final": "codex-natural-final/assessment.json"
+  },
+  "template_sha256": "template-sha256.json",
+  "limits": [
+    "Staged native overlays are not live installed wrapper behavior.",
+    "Local native protocol/loading tests do not establish cloud model judgment.",
+    "Grok natural trials did not deliver by the preset 180-second deadline; unchanged green baseline is not simplification success.",
+    "The earlier Codex explicit-role experiment predates the final baseline/routing correction; exact original snapshots and differences are preserved.",
+    "No finite experiment proves universal or globally optimal architecture/code quality.",
+    "Final Codex natural run used fork_turns=all and encrypted follow-up messages; it is not proof of strict noninherited review context.",
+    "Final model tests still fix some incidental choices; this workflow does not eliminate all model-created contracts."
+  ],
+  "final_natural_result": {
+    "model": "gpt-6.1-sol",
+    "effort": "medium",
+    "exit_code": 0,
+    "seconds": 110.794,
+    "external_acceptance": 22,
+    "database_bytes_unchanged": true,
+    "role_selected_naturally": "simplify",
+    "fork_turns": "all",
+    "strict_noninherited_context": "not proven",
+    "source_changes": "actual forwarding/representation/registry/retry machinery removed from the wired CLI"
+  },
+  "completion_audit": {
+    "final_native_source_hashes_match": true,
+    "frozen_task_bytes_match": true,
+    "two_codex_trials_external_22_and_original_data_preserved": true,
+    "final_local_suite_passed": true,
+    "local_document_links_resolve": true,
+    "all_experimental_native_processes_terminal": true,
+    "native_behavior_limits_preserved": true,
+    "no_universal_quality_guarantee": true
+  }
+}

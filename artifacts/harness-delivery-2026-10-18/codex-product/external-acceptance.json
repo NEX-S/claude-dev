@@ -1,0 +1,96 @@
+{
+  "scope": "Requested happy path only; actual public CLI from delivered README. Each command runs in a new process; independent copy leaves delivered project untouched.",
+  "checks": [
+    {
+      "requirement": "empty list is usable",
+      "passed": true
+    },
+    {
+      "requirement": "add a Unicode title",
+      "passed": true
+    },
+    {
+      "requirement": "add an ordinary title with spaces",
+      "passed": true
+    },
+    {
+      "requirement": "two tasks survive fresh processes and are initially pending",
+      "passed": true
+    },
+    {
+      "requirement": "complete one task",
+      "passed": true
+    },
+    {
+      "requirement": "completion persists and the other task remains pending",
+      "passed": true
+    }
+  ],
+  "passed": 6,
+  "total": 6,
+  "commands": [
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/tmp/claude-dev-codex-product-hwfovkb7/external-acceptance/todo.py",
+        "list"
+      ],
+      "exit_code": 0,
+      "stdout": "暂无任务。使用 add 添加一个任务。\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/tmp/claude-dev-codex-product-hwfovkb7/external-acceptance/todo.py",
+        "add",
+        "买牛奶 🥛"
+      ],
+      "exit_code": 0,
+      "stdout": "已添加 #1：买牛奶 🥛\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/tmp/claude-dev-codex-product-hwfovkb7/external-acceptance/todo.py",
+        "add",
+        "Read chapter one"
+      ],
+      "exit_code": 0,
+      "stdout": "已添加 #2：Read chapter one\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/tmp/claude-dev-codex-product-hwfovkb7/external-acceptance/todo.py",
+        "list"
+      ],
+      "exit_code": 0,
+      "stdout": "[ ] 1. 买牛奶 🥛\n[ ] 2. Read chapter one\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/tmp/claude-dev-codex-product-hwfovkb7/external-acceptance/todo.py",
+        "done",
+        "1"
+      ],
+      "exit_code": 0,
+      "stdout": "已完成 #1：买牛奶 🥛\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/tmp/claude-dev-codex-product-hwfovkb7/external-acceptance/todo.py",
+        "list"
+      ],
+      "exit_code": 0,
+      "stdout": "[x] 1. 买牛奶 🥛\n[ ] 2. Read chapter one\n",
+      "stderr": ""
+    }
+  ]
+}

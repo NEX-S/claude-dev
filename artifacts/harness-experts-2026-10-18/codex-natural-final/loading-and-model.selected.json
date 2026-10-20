@@ -1,0 +1,31 @@
+{
+  "models": [
+    {
+      "origin": "parent",
+      "timestamp": "2026-10-18T00:22:01.470Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium"
+    },
+    {
+      "origin": "simplify",
+      "timestamp": "2026-10-18T00:22:11.504Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium"
+    },
+    {
+      "origin": "simplify",
+      "timestamp": "2026-10-18T00:22:14.894Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium"
+    }
+  ],
+  "role_injection": [
+    {
+      "timestamp": "2026-10-18T00:22:11.503Z",
+      "message_role": "developer",
+      "content_index": 0,
+      "role_body_sha256": "249ab790ce3b50046a540a45ca827fff12410f450e4b8ea8b4a635bd42776d80",
+      "exact_body_occurrences": 1
+    }
+  ]
+}

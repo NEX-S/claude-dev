@@ -1,0 +1,34 @@
+{
+  "kind": "staged-project-overlay after targeted harness revision",
+  "fixed_timeout_seconds": 180,
+  "session_id": "10cb1c21-05ec-4bcf-98f9-add98ddea6e3",
+  "source_run_directory": "/tmp/claude-dev-grok-natural-yoyr1q5o",
+  "source_run_manifest_sha256": "8a8277d2bf9511d45dd47f8a669acadb7df9bf2ffe04eeca9e3b9ccfa74a0828",
+  "source_task_sha256": "af714fb1af5a9f389266c6d58593f865b944d3b326876f3070edb1e3064385c7",
+  "task_sha256": "da994733b21a5ee4d3b278847238350894bfdfa0e05d77ad6d1b8c9991283e65",
+  "same_task_bytes_as_before": true,
+  "seed": {
+    "tasks.py": "0a16f93d0dbc785693d97939c45ffda700336f5804864361df3901cf804c2e58",
+    "domain.py": "dca5f036dda09e40afbf063f41292d6915a34463c937444f83f78cf38e35e87a",
+    "persistence.py": "c712b126a5af69d32c7e7f157ae7c3735a4771118164d5cf501406af3af0a890",
+    "repository.py": "8a4731a8b43a51a2f1e764782eb677e0d4e9b3b97108e06702a7cf4e1930d559",
+    "application.py": "c138901b21898ab1290868d3ce0b8c3ae84c0ec65f9cca63edb3efb6600c2ff8",
+    "README.md": "04e2dd7a25e68abf8730dd1343b4cb3c065596c28175b207448c0deb8e736236",
+    "existing.db": "8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58"
+  },
+  "verifiers": {
+    "acceptance.py": "91a62e595f50a23e89fe3977b56e3df8d3214920dbf99cdc3527a5063606fd05",
+    "supplement.py": "acbe982b99f6f1bdc18ca6bb6e8699e180e268e32ec23e4560818d9754c36c32",
+    "existing-db.sha256": "184380b47e2cf744f5fb34d6967ac4414811ec1a7bea7953d03651a9051f3b6d"
+  },
+  "templates": {
+    "templates/grok/AGENTS.md": "54b615c80aa30c2c38c233742ffb04cb64816645e6986471b340f0b5d56fc875",
+    "templates/grok/skills/develop/SKILL.md": "f130de5ce4fbfb204e47f221148b9c80976ca3c248c7c22342b8da5b072e6756",
+    "templates/grok/agents/arch.md": "0ac2827526d1fe6a065aa680ab4cce0a61aa213fb07010a25df16a64ed1ff34c",
+    "templates/grok/agents/dev.md": "611bab45a261f54944c547bf977da19fbe846c34be9e051dba959f6a59968e84",
+    "templates/grok/agents/review.md": "6eaf502d456458c8775b50f187ec563cc6ba64e4bf48261bf3e66957778f5e26",
+    "templates/grok/agents/research.md": "28bc4f77dacdaf97bc2e8c8e9eec32bce7d1904362d3874042e4928a64f4f22e",
+    "templates/grok/agents/simplify.md": "ffcdec128e362c8d268e96d81c7cd2ae65faf96873b160271e082893d0614ee6"
+  },
+  "existing_db_sha256": "8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58"
+}

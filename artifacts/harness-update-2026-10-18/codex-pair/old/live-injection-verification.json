@@ -1,0 +1,6 @@
+{
+  "frozen_task_exactly_present": true,
+  "root_profile_exactly_present": true,
+  "no_model_or_effort_override": true,
+  "role_config_scope": "Native -c role config_file and description argv were accepted with no role-specific warning; no role dispatch occurred, so child instruction behavior was not exercised."
+}

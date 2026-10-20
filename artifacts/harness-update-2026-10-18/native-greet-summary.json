@@ -1,0 +1,487 @@
+{
+  "trial_kind": "原生CLI参数/项目overlay的staged行为试验；不是已发布wrapper结果。正常HOME原生认证与默认模型/effort，无模型覆盖；未修改真实HOME配置或仓库。",
+  "clients": {
+    "claude": {
+      "cli_version": "2.1.302 (Claude Code)",
+      "exit": {
+        "client": "claude",
+        "native_pid": 1746269,
+        "supervisor_pid": 1746267,
+        "start_epoch": 1792277670.2140787,
+        "bounded_timeout_s": 180,
+        "bounded_stop": false,
+        "exit_code": 1,
+        "end_epoch": 1792277671.0297563,
+        "elapsed_seconds": 0.8156781196594238
+      },
+      "init": {
+        "type": "system",
+        "subtype": "init",
+        "model": "claude-opus-5-5[1m]",
+        "session_id": "ff5072bb-7868-4992-92f9-0d057a44f2cb",
+        "permissionMode": "bypassPermissions",
+        "agents": [
+          "arch",
+          "claude",
+          "dev",
+          "Explore",
+          "general-purpose",
+          "Plan",
+          "review",
+          "statusline-setup"
+        ],
+        "tools": [
+          "Task",
+          "Bash",
+          "CronCreate",
+          "CronDelete",
+          "CronList",
+          "DesignSync",
+          "Edit",
+          "EnterWorktree",
+          "ExitWorktree",
+          "ListAgents",
+          "Monitor",
+          "NotebookEdit",
+          "PushNotification",
+          "Read",
+          "ReportFindings",
+          "ScheduleWakeup",
+          "SendMessage",
+          "Skill",
+          "TaskStop",
+          "ToolSearch",
+          "WebFetch",
+          "WebSearch",
+          "Workflow",
+          "Write"
+        ],
+        "skills": [
+          "develop",
+          "deep-research",
+          "design",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "claude-api",
+          "workflow-authoring",
+          "run",
+          "run-skill-generator",
+          "plugin-authoring"
+        ]
+      },
+      "terminal": {
+        "type": "result",
+        "subtype": "success",
+        "is_error": true,
+        "result": "Not logged in · Please run /login",
+        "stop_reason": "stop_sequence",
+        "num_turns": 1,
+        "duration_ms": 75,
+        "duration_api_ms": 0,
+        "total_cost_usd": 0,
+        "usage": {
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 0,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "",
+          "iterations": [],
+          "speed": "standard",
+          "fallback_credit": null
+        },
+        "modelUsage": {}
+      },
+      "tool_calls": [],
+      "assistant_texts": [
+        "Not logged in · Please run /login"
+      ],
+      "external_exit_code": 1,
+      "external_output": "strip: FAIL actual='Hello,  Ada !' expected='Hello, Ada!'\nblank: FAIL actual='Hello,  \\t!' expected='Hello, World!'\npreserve_internal_unicode: PASS actual='Hello, 李 四!' expected='Hello, 李 四!'\n1/3 passed\n",
+      "files": [
+        ".claude/agents/arch.md",
+        ".claude/agents/dev.md",
+        ".claude/agents/review.md",
+        ".claude/skills/develop/SKILL.md",
+        "greet.py"
+      ],
+      "new_non_staged_files": [],
+      "source": "def greeting(name):\n    return f\"Hello, {name}!\"\n",
+      "diff": "",
+      "native_schema_in_stdout": false
+    },
+    "grok": {
+      "cli_version": "grok 1.0.52 (0920c8169e27)",
+      "exit": {
+        "client": "grok",
+        "native_pid": 1746270,
+        "supervisor_pid": 1746268,
+        "start_epoch": 1792277670.2141094,
+        "bounded_timeout_s": 180,
+        "bounded_stop": false,
+        "exit_code": 0,
+        "end_epoch": 1792277700.138967,
+        "elapsed_seconds": 29.924858570098877
+      },
+      "init": {
+        "type": "system",
+        "subtype": "init",
+        "model": "grok-4.7",
+        "session_id": "01a14c12-ee0e-7032-a934-4b286a68c979",
+        "permissionMode": "bypassPermissions",
+        "tools": [
+          "run_terminal_command",
+          "read_file",
+          "search_replace",
+          "list_dir",
+          "grep",
+          "kill_command_or_subagent",
+          "todo_write",
+          "get_command_or_subagent_output",
+          "spawn_subagent",
+          "scheduler_create",
+          "scheduler_delete",
+          "scheduler_list",
+          "monitor",
+          "search_tool",
+          "use_tool",
+          "workflow",
+          "enter_plan_mode",
+          "exit_plan_mode",
+          "ask_user_question",
+          "send_feedback",
+          "web_search",
+          "web_fetch",
+          "image_gen",
+          "image_edit",
+          "image_to_video",
+          "reference_to_video",
+          "write"
+        ],
+        "skills": [
+          "automate",
+          "autopilot",
+          "canvas",
+          "create-hook",
+          "create-rule",
+          "create-skill",
+          "create-subagent",
+          "deploy-with-vercel",
+          "user:goal",
+          "user:loop",
+          "migrate-to-skills",
+          "new-repo",
+          "onboard",
+          "origin",
+          "rename-chat",
+          "review",
+          "review-bugbot",
+          "review-security",
+          "sdk",
+          "user:share",
+          "shell",
+          "split-to-prs",
+          "statusline",
+          "update-cli-config",
+          "update-cursor-settings",
+          "visualize",
+          "build-with-ai",
+          "code-review",
+          "create-workflow",
+          "design",
+          "execute-plan",
+          "game-assets",
+          "bundled:imagine",
+          "implement",
+          "learn",
+          "long-running-background-tasks",
+          "pr-babysit",
+          "resume-claude",
+          "resume-codex",
+          "resume-cursor",
+          "skill-design-principles",
+          "threejs-frame-conventions"
+        ]
+      },
+      "terminal": {
+        "type": "result",
+        "subtype": "success",
+        "is_error": false,
+        "result": "`greeting(name)` 会先去掉姓名首尾空白；清理后为空时使用 `World`。问候格式仍是 `Hello, {name}!`。\n\n```1:3:greet.py\ndef greeting(name):\n    name = name.strip() or \"World\"\n    return f\"Hello, {name}!\"\n```\n\n已用 Python 核对：普通姓名不变，首尾空格和换行会被去掉，姓名中间的空白保留，空字符串和纯空白都返回 `Hello, World!`。9 个用例全部通过。",
+        "stop_reason": "end_turn",
+        "num_turns": 6,
+        "duration_ms": 26994,
+        "duration_api_ms": 26762,
+        "total_cost_usd": 0.04070344,
+        "usage": {
+          "input_tokens": 34714,
+          "output_tokens": 1608,
+          "cache_read_input_tokens": 81280,
+          "cache_creation_input_tokens": 0,
+          "server_tool_use": {
+            "web_search_requests": 0
+          }
+        },
+        "modelUsage": {
+          "grok-4.7-build": {
+            "inputTokens": 34714,
+            "outputTokens": 1608,
+            "cacheReadInputTokens": 81280,
+            "cacheCreationInputTokens": 0,
+            "webSearchRequests": 0,
+            "costUSD": 0.04070344
+          }
+        }
+      },
+      "tool_calls": [
+        {
+          "name": "list_dir",
+          "input": {
+            "target_directory": "/tmp/claude-dev-staged-greet-xarypgly/grok/project"
+          }
+        },
+        {
+          "name": "grep",
+          "input": {
+            "pattern": "def greeting",
+            "glob": "**/*.{py,md}"
+          }
+        },
+        {
+          "name": "read_file",
+          "input": {
+            "target_file": "/tmp/claude-dev-staged-greet-xarypgly/grok/project/greet.py"
+          }
+        },
+        {
+          "name": "grep",
+          "input": {
+            "pattern": "greeting|greet",
+            "glob": "**/*"
+          }
+        },
+        {
+          "name": "search_replace",
+          "input": {
+            "file_path": "/tmp/claude-dev-staged-greet-xarypgly/grok/project/greet.py",
+            "old_string": "def greeting(name):\n    return f\"Hello, {name}!\"",
+            "new_string": "def greeting(name):\n    name = name.strip() or \"World\"\n    return f\"Hello, {name}!\""
+          }
+        },
+        {
+          "name": "run_terminal_command",
+          "input": {
+            "command": "python3 - << 'PY'\nfrom greet import greeting\n\ncases = [\n    (\"Alice\", \"Hello, Alice!\"),\n    (\"  Alice  \", \"Hello, Alice!\"),\n    (\"\\tBob\\n\", \"Hello, Bob!\"),\n    (\"  Ada  Lovelace  \", \"Hello, Ada  Lovelace!\"),\n    (\"\", \"Hello, World!\"),\n    (\"   \", \"Hello, World!\"),\n    (\"\\n\\t  \", \"Hello, World!\"),\n    (\"World\", \"Hello, World!\"),\n    (\"  World  \", \"Hello, World!\"),\n]\n\nfailed = 0\nfor name, expected in cases:\n    got = greeting(name)\n    ok = got == expected\n    print(f\"{'OK' if ok else 'FAIL'} {name!r} -> {got!r} (expected {expected!r})\")\n    failed += not ok\n\n# unchanged shape for a normal name\nassert greeting(\"Ada\") == \"Hello, Ada!\"\nprint(\"failures\", failed)\nraise SystemExit(failed)\nPY",
+            "description": "Verify greeting strip and empty fallback"
+          }
+        },
+        {
+          "name": "read_file",
+          "input": {
+            "target_file": "/tmp/claude-dev-staged-greet-xarypgly/grok/project/greet.py"
+          }
+        }
+      ],
+      "assistant_texts": [
+        "我先看 `greeting(name)` 的现有实现和相关测试，再按约定去掉首尾空白，空结果用 World。",
+        "`greeting` 目前直接拼接姓名。接下来只做首尾去空白，清理后为空则用 `World`。",
+        "`greeting(name)` 会先去掉姓名首尾空白；清理后为空时使用 `World`。问候格式仍是 `Hello, {name}!`。\n\n```1:3:greet.py\ndef greeting(name):\n    name = name.strip() or \"World\"\n    return f\"Hello, {name}!\"\n```\n\n已用 Python 核对：普通姓名不变，首尾空格和换行会被去掉，姓名中间的空白保留，空字符串和纯空白都返回 `Hello, World!`。9 个用例全部通过。"
+      ],
+      "external_exit_code": 0,
+      "external_output": "strip: PASS actual='Hello, Ada!' expected='Hello, Ada!'\nblank: PASS actual='Hello, World!' expected='Hello, World!'\npreserve_internal_unicode: PASS actual='Hello, 李 四!' expected='Hello, 李 四!'\n3/3 passed\n",
+      "files": [
+        ".grok/agents/arch.md",
+        ".grok/agents/dev.md",
+        ".grok/agents/review.md",
+        ".grok/skills/develop/SKILL.md",
+        "__pycache__/greet.cpython-314.pyc",
+        "greet.py"
+      ],
+      "new_non_staged_files": [
+        "__pycache__/greet.cpython-314.pyc"
+      ],
+      "source": "def greeting(name):\n    name = name.strip() or \"World\"\n    return f\"Hello, {name}!\"\n",
+      "diff": "--- before/greet.py\n+++ after/greet.py\n@@ -1,2 +1,3 @@\n def greeting(name):\n+    name = name.strip() or \"World\"\n     return f\"Hello, {name}!\"\n",
+      "native_schema_in_stdout": false
+    },
+    "claude_devroot": {
+      "trial_kind": "实际开发配置根的原生CLI参数/项目overlay staged补证，非已发布wrapper结果；保留此前plain失败",
+      "cli_version": "2.1.302 (Claude Code)",
+      "runtime_config_dir": "/home/nex/.claude-dev",
+      "session_settings": {
+        "sandbox": {
+          "enabled": false
+        },
+        "claudeMdExcludes": [
+          "/home/nex/.claude-dev/CLAUDE.md",
+          "/home/nex/.claude/**"
+        ]
+      },
+      "exit": {
+        "client": "claude_devroot",
+        "native_pid": 1762134,
+        "supervisor_pid": 1762130,
+        "start_epoch": 1792277805.1294198,
+        "bounded_timeout_s": 180,
+        "runtime_config_dir": "/home/nex/.claude-dev",
+        "bounded_stop": false,
+        "exit_code": 1,
+        "end_epoch": 1792277805.9951756,
+        "elapsed_seconds": 0.8657567501068115
+      },
+      "init": {
+        "type": "system",
+        "subtype": "init",
+        "model": "claude-opus-5-5",
+        "session_id": "a0d4fa5d-ceb8-4ac5-a9c3-6c0c99eacafd",
+        "permissionMode": "bypassPermissions",
+        "agents": [
+          "arch",
+          "claude",
+          "dev",
+          "Explore",
+          "general-purpose",
+          "Plan",
+          "review",
+          "statusline-setup"
+        ],
+        "skills": [
+          "develop",
+          "deep-research",
+          "design",
+          "design-sync",
+          "dataviz",
+          "update-config",
+          "verify",
+          "debug",
+          "code-review",
+          "simplify",
+          "batch",
+          "fewer-permission-prompts",
+          "doctor",
+          "loop",
+          "claude-api",
+          "workflow-authoring",
+          "run",
+          "run-skill-generator",
+          "plugin-authoring"
+        ],
+        "tools": [
+          "Task",
+          "Bash",
+          "CronCreate",
+          "CronDelete",
+          "CronList",
+          "DesignSync",
+          "Edit",
+          "EnterWorktree",
+          "ExitWorktree",
+          "ListAgents",
+          "LSP",
+          "Monitor",
+          "NotebookEdit",
+          "PushNotification",
+          "Read",
+          "ReportFindings",
+          "ScheduleWakeup",
+          "SendMessage",
+          "Skill",
+          "TaskStop",
+          "ToolSearch",
+          "WebFetch",
+          "WebSearch",
+          "Workflow",
+          "Write"
+        ]
+      },
+      "terminal": {
+        "type": "result",
+        "subtype": "success",
+        "is_error": true,
+        "result": "Not logged in · Please run /login",
+        "stop_reason": "stop_sequence",
+        "num_turns": 1,
+        "duration_ms": 83,
+        "duration_api_ms": 0,
+        "total_cost_usd": 0,
+        "usage": {
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "input_tokens": 0,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 0,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "",
+          "iterations": [],
+          "speed": "standard",
+          "fallback_credit": null
+        },
+        "modelUsage": {}
+      },
+      "tool_calls": [],
+      "assistant_texts": [
+        "Not logged in · Please run /login"
+      ],
+      "external_exit_code": 1,
+      "external_output": "strip: FAIL actual='Hello,  Ada !' expected='Hello, Ada!'\nblank: FAIL actual='Hello,  \\t!' expected='Hello, World!'\npreserve_internal_unicode: PASS actual='Hello, 李 四!' expected='Hello, 李 四!'\n1/3 passed\n",
+      "files": [
+        ".claude/agents/arch.md",
+        ".claude/agents/dev.md",
+        ".claude/agents/review.md",
+        ".claude/skills/develop/SKILL.md",
+        "greet.py"
+      ],
+      "source": "def greeting(name):\n    return f\"Hello, {name}!\"\n",
+      "diff": "",
+      "native_process_still_exists": false,
+      "prompt_evidence": {
+        "session_context_type": "dict",
+        "session_context_keys": [],
+        "prompt_snapshot": {
+          "native_transcript": "/home/nex/.claude-dev/projects/-tmp-claude-dev-staged-greet-xarypgly-claude-devroot-project/a0d4fa5d-ceb8-4ac5-a9c3-6c0c99eacafd.jsonl",
+          "attachment_type": "prompt_snapshot",
+          "system_prompt_type": "list",
+          "system_prompt_length": 11196,
+          "system_prompt_sha256": "46ce5d9d4cf18980bf8d361306227cd9289314a4db92d96003633e13d0939a43",
+          "exact_staged_root_occurrences": 1,
+          "staged_develop_absolute_link_present": true,
+          "excluded_old_root_path_present": false,
+          "excluded_default_claude_path_present": false,
+          "memory_contents_paths": []
+        }
+      },
+      "loading_evidence": "loading-evidence.selected.txt",
+      "exclusion_evidence_limit": "原生prompt_snapshot附件含exact staged root一次和新develop绝对链接；旧dev root/default .claude路径均不在system prompt，session_context为空。原生schema/实现及exact argv同时保留。此为初始化加载证据，认证阻塞使实际行为未验证。"
+    }
+  }
+}

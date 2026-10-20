@@ -1,0 +1,226 @@
+{
+  "passed": 14,
+  "checks": [
+    {
+      "check": "empty list",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "list"
+        ],
+        "returncode": 0,
+        "stdout": "[]\n",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "empty export",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "export"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "add integer ID: 写周报 with spaces",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "add",
+          "写周报 with spaces"
+        ],
+        "returncode": 0,
+        "stdout": "1\n",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "add integer ID: second task",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "add",
+          "second task"
+        ],
+        "returncode": 0,
+        "stdout": "2\n",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "distinct IDs",
+      "passed": true,
+      "detail": [
+        1,
+        2
+      ]
+    },
+    {
+      "check": "persistent exact records and ascending IDs",
+      "passed": true,
+      "detail": [
+        {
+          "id": 1,
+          "title": "写周报 with spaces",
+          "done": false
+        },
+        {
+          "id": 2,
+          "title": "second task",
+          "done": false
+        }
+      ]
+    },
+    {
+      "check": "JSON booleans",
+      "passed": true,
+      "detail": [
+        {
+          "id": 1,
+          "title": "写周报 with spaces",
+          "done": false
+        },
+        {
+          "id": 2,
+          "title": "second task",
+          "done": false
+        }
+      ]
+    },
+    {
+      "check": "complete existing task",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "done",
+          "1"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "completion persists with other task pending",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "list"
+        ],
+        "returncode": 0,
+        "stdout": "[{\"id\": 1, \"title\": \"写周报 with spaces\", \"done\": true}, {\"id\": 2, \"title\": \"second task\", \"done\": false}]\n",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "ordered Markdown export",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "export"
+        ],
+        "returncode": 0,
+        "stdout": "- [x] 写周报 with spaces\n- [ ] second task\n",
+        "stderr": ""
+      }
+    },
+    {
+      "check": "blank title fails without success output",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "add",
+          " \t "
+        ],
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "error: title must not be blank\n"
+      }
+    },
+    {
+      "check": "missing ID fails without success output",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "done",
+          "10002"
+        ],
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "error: task ID 10002 does not exist\n"
+      }
+    },
+    {
+      "check": "invalid command fails without success output",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "nonesuch"
+        ],
+        "returncode": 2,
+        "stdout": "",
+        "stderr": "usage: tasks.py [-h] --db DB {add,list,done,export} ...\ntasks.py: error: argument command: invalid choice: 'nonesuch' (choose from 'add', 'list', 'done', 'export')\n"
+      }
+    },
+    {
+      "check": "failed operations preserve existing records",
+      "passed": true,
+      "detail": {
+        "args": [
+          "python3",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py",
+          "--db",
+          "/home/nex/.cache/harness-quality-20261019/ledger-before/ledger-acceptance-7n9umgcs/ledger.db",
+          "list"
+        ],
+        "returncode": 0,
+        "stdout": "[{\"id\": 1, \"title\": \"写周报 with spaces\", \"done\": true}, {\"id\": 2, \"title\": \"second task\", \"done\": false}]\n",
+        "stderr": ""
+      }
+    }
+  ]
+}

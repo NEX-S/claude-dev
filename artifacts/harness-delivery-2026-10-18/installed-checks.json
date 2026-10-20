@@ -1,0 +1,16 @@
+{
+  "command": "./install.sh --target all",
+  "exit_code": 0,
+  "native_base_configs_unchanged": true,
+  "checked_paths": [
+    ".codex/config.toml",
+    ".grok/config.toml",
+    ".claude/settings.json"
+  ],
+  "installed_templates_match": true,
+  "real_codex_dev_native_root_loaded": true,
+  "documented_medium_override_accepted": true,
+  "repeat_dry_run_has_no_changes": true,
+  "model_or_effort_forced_in_profile": false,
+  "backup": "/home/nex/.local/state/claude-dev/backups/install-Hl6DJP"
+}

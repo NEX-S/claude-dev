@@ -1,143 +1,136 @@
-# claudex
+# claude-dev
 
-Claude Code / Codex 的独立开发配置。目标是完整实现需求，让架构、代码和执行过程保持清楚：抽象有真实用途，在边界校验输入，意外错误保留原因，完成必须有可检查的结果。
+在 Claude Code、Codex 和 Grok Build 的原生 harness 上定制个人开发偏好：极致简洁、干净、优雅、无冗余，少防御但不吞错。会话、工具、子代理和运行机制沿用原生能力。本项目提供开发入口：`claude-dev`、`codex-dev`、`grok-dev`。三端采用一致的质量取舍和 research/arch/dev/simplify/review 职责。给出一个概述目标，主会话收敛本轮功能，尽早贯通最简单的完整使用路径，由作者自清理、必要验证后交付。专家按具体问题调用，项目大不自动增加阶段；新功能和使用中发现的 bug 留待后续迭代。
 
-| 命令 | 用户配置 | 行为 |
-| --- | --- | --- |
-| `claude` | 原生默认配置 | 保留你原来的 Claude Code 设置 |
-| `codex` | 原生默认配置 | 保留你原来的 Codex 设置 |
-| `claude-dev` | `~/.claude-dev/` | 加载本项目的开发规则、角色和技能 |
-| `codex-dev` | `~/.codex-dev/` | 加载相同的开发规则、角色和技能 |
+## 安装
 
-普通命令仍按各自 CLI 的原生规则处理环境变量和项目配置。这里的“默认”是你已有的原生配置，不会重置个人设置。
+需要 [Bun](https://bun.sh/)；使用哪一个入口，就需要对应的原生 CLI 已在 PATH 中。Codex 需要支持独立 profile 文件的版本（0.134.0 起）；本轮原生检查版本为 Claude Code 2.1.303、Codex 0.163.0、Grok 1.0.62。安装器不下载 CLI，也不固定模型或 effort。三个开发入口默认使用原生最高权限模式，并关闭 CLI 自带的独立 sandbox。
 
-## 安装与使用
-
-安装需要 POSIX sh 和 Bun（已验证 **1.3.14**）；运行开发入口还需要相应原生 CLI 在 `PATH` 中。安装器使用 TypeScript 与内置 API，不需要 Python 或安装第三方包。已验证 Claude Code **2.1.268**、Codex CLI **0.154.0**。更早版本未做兼容性保证，尤其要确认 Codex 支持独立 agent TOML 和配置目录内的技能发现。
-
-```bash
-git clone https://github.com/NEX-S/claudex.git
-cd claudex
-./install.sh
-```
-
-安装两个可执行入口到 `~/.local/bin`。如果该目录不在你的 `PATH`，在 shell 配置中加入：
-
-```bash
-export PATH="$HOME/.local/bin:$PATH"
-```
-
-之后在项目目录中使用：
-
-```bash
+```sh
+git clone https://github.com/NEX-S/claude-dev.git
+cd claude-dev
+./install.sh --target all
 claude-dev
 codex-dev
-codex-dev exec '修复当前失败的测试，并验证实际行为'
+grok-dev
 ```
 
-参数、工作目录和退出码透传给原生 CLI。wrapper 只为子进程设置相应的开发配置根并 `exec` 原生命令，安装时不会改变 shell 别名。`claude-dev` 另有固定锚点：会话以 `--permission-mode bypassPermissions --effort max --autocompact 900k` 启动（你写在后面的同名参数仍然覆盖），且 `--model` 的值同时写入原生模型别名和 subagent 模型，避免内建 subagent 解析到端点不服务的 Anthropic 模型 id；不传 `--model` 时这些变量不设置。`codex-dev` 不设置这些。
+针对当前偏好，建议 `gpt-6.1-sol` 从 `medium` 起步，复杂设计或难定位问题再用 `high`；小而明确的修改可用 `low`。这不是已证实的简洁度排名，项目不强制覆盖 effort。可只对本次启动指定：
 
-开发配置的登录、个人服务设置和历史独立维护，首次使用可能需要登录：
-
-```bash
-claude-dev auth login
-codex-dev login
+```sh
+codex-dev --model gpt-6.1-sol -c 'model_reasoning_effort="medium"'
 ```
 
-自定义 provider、MCP 或其他个人设置按原生格式放入 `~/.claude-dev/settings.json`、`~/.codex-dev/config.toml` 等对应文件。安装器不复制默认目录的认证或设置，升级也保留开发目录内无关的个人文件。已导出的 API 环境变量仍按原生行为生效。
+官方依据、社区对比的局限见 [挡位调研](docs/research.md#gpt-61-sol-思考挡位与快速交付2026-10-18)。
 
-配置隔离通过官方的 [`CLAUDE_CONFIG_DIR`](https://code.claude.com/docs/en/claude-directory) 和 [`CODEX_HOME`](https://learn.chatgpt.com/docs/config-file/config-advanced#config-and-state-locations) 实现。项目中的 `CLAUDE.md`、`AGENTS.md`、项目配置和 CLI 本身支持的共享技能路径仍会被读取；这不是文件系统隔离。不会把本项目的技能安装到普通 Codex 也会发现的 `~/.agents/skills`。
+Opus 5.5 官方建议从 medium 校准，Grok 4.7 的 API 默认则是 high；不同模型的同名挡位不表示相同投入，不统一强设。最新模型专用建议与采用边界见 [调研](docs/research.md#三种常用模型的最新增量2026-10-19)。
 
-测试或预览安装到另一个目录：
+把 `~/.local/bin` 加入 PATH。原有 `./install.sh` 用法仍只安装 Claude；也可以用 `--target codex` 或 `--target grok` 单独安装。
 
-```bash
-./install.sh --home /tmp/claudex-preview
-/tmp/claudex-preview/.local/bin/claude-dev --version
-/tmp/claudex-preview/.local/bin/codex-dev --version
-```
-
-`--home` 只指定安装目的根，不改进程 `HOME`。生成的 wrapper 固定指向该安装目录；移动安装后应重新运行安装器。支持 `~` 和 `~/path`；其他用户的 `~name` 路径应由 shell 展开或写成绝对路径。
-
-## 规范如何分层
-
-| 内容 | 责任 | 何时加载 |
+| 入口 | 原生接入方式 | 账号与配置 |
 | --- | --- | --- |
-| 根规范 | 完整目标、最少必要结构、边界契约、错误可见、验证责任 | 每次开发会话 |
-| `arch` | 真实架构决策、接口与依赖 | 设计尚未确定时 |
-| `dev` | 实现、修复及必要验证 | 有明确需求或设计时 |
-| `review` | 独立只读检查正确性、回归、复杂度和验证缺口 | 变更需要独立审查时 |
-| `research` | 对未知领域收集证据并比较取舍 | 方案需要研究时 |
-| `refine` | 对已有基线做受控实验 | 有可衡量的优化目标时 |
-| `plan` | 把已定方案写成有依赖、所有权和验收的计划 | 工作复杂或需恢复时 |
-| `orchestrate` skill | 计划、并行派发、集成、失败和恢复契约 | 执行多任务计划时 |
-| `author-skills` skill | 技能作用域、按需资源和行为验证 | 编写或修订技能时 |
+| `claude-dev` | 设置 `CLAUDE_CONFIG_DIR=~/.claude-dev` | 保留原有 Claude 开发配置根 |
+| `codex-dev` | `codex --profile dev`，读取 `~/.codex/dev.config.toml` | 使用普通 Codex 的配置根、认证及状态 |
+| `grok-dev` | `grok --rules "开发规则正文"` | 使用普通 Grok 的配置根、认证及状态 |
 
-简单修改直接做。跨独立领域的研究可以并行；接口和文件所有权定下来后，再并行开发。不会给所有任务强制套完整流水线、固定角色数量或“失败两次就清空会话”。
+Codex/Grok 的启动脚本不设置 `CODEX_HOME` 或 `GROK_HOME`，不复制、链接或同步凭证。原来的账号、provider、模型、信任记录和历史继续由原生 CLI 管理；普通入口未登录时，开发入口也需要登录。所有用户参数保持原样，追加在开发入口的固定参数之后。
 
-“少校验、少错误处理”有明确边界：拒绝无效外部输入、资源清理、已知可恢复错误仍按需求处理；内部可信代码不重复同一校验；未知异常不能被空值、默认成功、宽泛捕获或无限重试掩盖。
+权限默认值通过启动参数设置：Claude 使用 `--permission-mode bypassPermissions --settings '{"sandbox":{"enabled":false}}'`；Codex 使用 `--dangerously-bypass-approvals-and-sandbox`；Grok 使用 `--permission-mode bypassPermissions --sandbox off`。这些参数仅作用于开发入口的当前进程，不改普通 CLI 的全局权限配置。重复或冲突参数由原生 CLI 处理，wrapper 不解析、删除或改写用户参数。外层操作系统限制、组织策略以及原生强制规则仍然有效。
 
-## 计划定稿后并行执行
+从旧版本升级，重新执行同一条安装命令即可：
 
-可以直接用自然语言：
-
-```text
-Goal: 给现有应用增加可导出的筛选结果。
-Context: 相关接口在 src/api，界面在 src/ui，已有验证命令见项目说明。
-Constraints: 复用当前依赖，保持现有 API 兼容。
-Done when: 从真实界面筛选并导出的内容一致，相关回归通过。
-
-先解决会影响接口的设计问题。方案确定后用 plan 写 plan.md，
-然后使用 orchestrate 执行；独立任务并行，集成后验收。
+```sh
+./install.sh --target all
 ```
 
-Claude 可显式输入 `/orchestrate`，Codex 可输入 `$orchestrate`；技能也可按描述自动选择。格式契约见 [plan-format.md](templates/skills/orchestrate/references/plan-format.md)。
+旧 `.codex-dev`、`.grok-dev` 中的认证、配置与历史保留，但这两个目录以后只提供受管的开发资源，不再被入口设为原生配置根。旧的凭证共享选项已移除。
 
-每项任务有稳定 `id`、`role`、`deps`、`owns`、`acceptance`、`state`。协调者只派发前驱完成、文件与共享资源不冲突的就绪任务，并记录真实运行句柄。A 完成后 B/C 可并行，D 只能消费两者集成并验收后的结果：
+`codex-dev` 是工作入口；登录、退出和 app-server 等管理命令使用普通 `codex`。原生 `--profile` 不适用于所有子命令，安装器不另写一套参数解析器。Codex 开发 profile 的 `developer_instructions` 会覆盖基础配置中的同名字符串，项目指令和原生全局 AGENTS 仍按通常规则加载。
 
-```mermaid
-flowchart LR
-  A[接口与验收确定] --> B[API 实现及测试]
-  A --> C[UI 实现及测试]
-  B --> D[集成与用户路径验证]
-  C --> D
-  D --> E[独立评审与完成审计]
+## 清理废弃的用户配置
+
+三端都迁移到开发入口时，可以显式清理已知位置的旧用户级指令、角色、skills、commands 与 MCP，并移除 Claude 的 hooks 和用户插件注册。先预览，再执行：
+
+```sh
+./install.sh --target all --clean-legacy --dry-run
+./install.sh --target all --clean-legacy
 ```
 
-共享工作区由一个任务拥有一个写入范围；需要分支隔离时使用 worktree，协调者串行集成。任务完成即重新计算就绪集合，不等无关慢任务。失败只阻塞受影响的后继。`done` 必须有后继能访问的集成产物和验收证据，worker 的完成消息不足以解锁任务。
+`--clean-legacy` 只与 `--target all` 一起使用。清理以安装目标 HOME 为边界，处理 `.claude`、`.codex`、`.grok`、`.agents` 中已知的用户扩展位置，以及相关全局配置注册。链接本身进入备份，不沿链接删除目标。Claude 的项目级注册、各 CLI 的认证、会话历史、Grok 的二进制和 bundled 资源、Codex 的 `.system` 技能不在清理范围。
 
-中断后让 agent 读取 `plan.md` 并使用 `orchestrate` 恢复。它先核对仓库和实际运行句柄；超时或陈旧的 `running` 记录不能作为重复启动 worker 的理由。计划是协调记录，不代替实际文件、进程和验证结果。运行仍由原生会话承担，本项目不安装常驻调度器，也不承诺退出 CLI 后自动继续。
+旧用户插件除移除注册外，还按原生 manifest 或标准组件标记识别会被直接发现的插件目录，并移入备份。插件缓存和数据保留，不递归扫描其中内容。
 
-默认使用原生 subagents。稳定、重复且适合脚本化的流程，可由 `orchestrate` 选择当前环境提供的 [Claude 原生 Workflows](https://code.claude.com/docs/en/workflows)，先加载原生 `workflow-authoring` 参考并确认角色加载与模型继承。其脚本运行于 Claude 的受限 JavaScript 环境；Bun 仅运行本项目安装器。Workflows 的失败或 `null` 结果仍需保留，恢复可能重跑已完成工作，不能替代文件集成与验收。当前没有发布通用 workflow 脚本，也未验证本地 provider 的 Workflow 执行；具体选型见[研究报告](docs/research-orchestration.md)。
+Claude JSON 配置只移除约定的扩展键，保留其他值。Codex/Grok TOML 只清理 MCP，其他配置（包括额外的扩展发现路径与 hooks）保留；存在 MCP 注册时，用对应原生 CLI 在临时配置副本中移除，再检查其他配置的语义未变。所需 CLI 不可用或修改超出范围时，在发布前报错。清理不会改项目目录里的规则、skills 或 MCP 配置，也不扫描任意自定义扩展路径。
 
-## 更新与旧版本迁移
+变化的旧文件和目录先备份到 `~/.local/state/claude-dev/backups/`，控制台列出路径；其中保留相对 HOME 的原位置，可据此恢复。重复安装不重写相同内容，不重复备份已清理项。不要同时运行安装或让其他进程改写待迁移配置；安装不提供跨路径事务或进程间锁。
 
-更新仓库后重新运行 `./install.sh`。内容未变则不重写、不新增备份；受管内容有变化会先备份。两端角色只维护 [templates/agents](templates/agents) 一份 Markdown，安装时生成 Codex TOML，模型等设置由父会话继承。当前 Codex 原生支持 [standalone agent TOML](https://learn.chatgpt.com/docs/agent-configuration/subagents#custom-agents)。
+## 协作与权限
 
-旧版曾写入 `~/.claude` 和 `~/.codex`，迁移需移走这些旧指令才能使普通命令恢复原来用途。安装器按仓库历史发布内容的精确指纹识别：
+| 角色 | 责任 |
+| --- | --- |
+| `research` | 核实本轮需求、现有合同和影响决策的一手证据；必要功能问题交主会话问用户 |
+| `arch` | 根据需求和研究选择最直接的完整设计，只定义当前需要的接口 |
+| `dev` | 一个完整结果的实现、持续简化、交付前自查清理、检查和修复 |
+| `simplify` | 独立接管可用实现，实际删除或替换多余结构，保持功能、接口和数据并验证修复 |
+| `review` | 独立检查正确性、回归、冗余与证据缺口 |
 
-- 可确认的旧发布文件移至备份目录，保持原始字节与相对路径；旧转发和符号链接还会核对目标关联。
-- 用户改写、未知内容或未知链接保留，安装输出列明仍需处理的路径。这种情况下普通命令可能继续加载旧规范，不能视为迁移全部完成。
-- 不清空默认目录，不改个人认证、settings/config，不猜测哪个旧 `.bak.*` 是你希望恢复的版本。
+默认项目路线是：粗略目标 → 收敛本轮功能 → 贯通最简单完整路径 → 作者自清理 → 必要验证 → 交付。主会话保留完整目标、必要用户问题和最终交付责任，也可直接实施。调研、架构、独立精简和评审只为当前具体未知、结构复杂度或重要风险启用；已有结论直接复用，项目大小不自动触发专家链，新证据允许推翻旧设计。
 
-备份位置由安装输出给出，位于安装根下的 `.local/state/claudex/backups/`，内部保留 `.claude/`、`.codex/`、`.claude-dev/` 等原路径。需要恢复时，先检查备份与现文件，再将所需条目放回原位置；链接应按链接恢复。恢复旧全局指令也会恢复普通命令加载开发规范的行为。
+影响功能、使用方式或数据的产品问题，要等用户回答后再实施依赖答案的部分；等待时继续独立工作。提出了问题不代表可以自行扩功能，普通技术取舍仍由 agent 决定。
 
-新安装仅创建开发目录和两个入口。归档下载也能安装，迁移指纹随仓库发布，不依赖安装机器保留 Git 历史。安装器会拒绝将受管目录通过符号链接映射到其他位置，避免更新开发配置时写进默认目录。
+整项目精简先判断完整范围中最大的多余职责，再选择改动，并按约定的产品或架构结果验收。已有调用者、旧设计和测试本身不证明一个机制仍然必要；一处局部清理通过检查，也不代表整项目目标完成。不增加固定重写量或额外阶段文档。
 
-## 验证与研究
+依赖取舍优先标准库和平台内置能力，再复用项目已有的合适能力。狭窄、明确的当前需求允许用直接的小实现解决；第三方库只有在功能或实现难度上的收益足以抵消集成与长期维护成本时才引入。小轮子保持当前用途，不顺手扩成通用框架；以总体理解和维护成本判断，不追求零依赖。这条偏好进入三端根规则与全部五个角色，不只保留在研究文档。
 
-维护者测试另外需要 Python 3.11+；保留标准库 `unittest` 与 `tomllib` 作为独立行为和生成格式验证。安装本身仅需 Bun 与 sh。
+已有项目先核真实调用者、功能和持久数据；允许大幅调整内部架构，按可验证的功能批次逐步落地。决定委派已有项目的精简时，把完整范围交给 simplify，由它完成调查、修改、验证与修复，避免主会话重复准备工作；小而明确的清理可由当前作者直接完成。基线只保护真实合同，不固化所有偶然实现细节。开发者先交付能用且已亲自精简、验证过的结果；收尾自查合并在同一任务里，无有益改动即可结束。明确的整体精简目标或具体结构问题才交独立 simplify 重新权衡。需要时顺序交接给新的 simplify 上下文；两者不同时改同一耦合实现。简化者负责自身改动、检查和修复，可以判断无需修改。职责、状态和理解成本减少才是收益，不以删行或改动数量验收。最后由主会话检查真实使用路径，必要时调用只读 review，不能以作者报告代替验收。
 
-```bash
-python3 -m unittest discover -s tests -v
-CLAUDEX_TEST_CLI=1 python3 -m unittest discover -s tests -p test_cli.py -v
-git diff --check
+质量合同明确区分用户需求与 agent 自定机制：保留真实行为，允许简化内部设计及对应检查；抽象须减少当前用途的整体理解成本。内部信任契约，错误保留原因直接暴露；只在必要恢复、清理或边界呈现时处理。不在没有当前合同时猜测、转换或修复未支持输入，也不因此增加校验矩阵。只在反直觉处注释 why。主会话核实实际代码和检查输出，复用仍覆盖当前代码、输入和环境的结果，只补缺失或失效的部分；无关改动不自动触发全量复测，明确发布门禁仍须完成。本轮必需功能成立、明显冗余已清理、相关检查通过即交付；进度汇报不等于完成，交付前要收取必需的后台命令与 worker 结果。修复已知功能与数据失败，不为证明没有未知 bug、穷举边界或继续抛光而延长 goal。“极致”指导设计取舍，不表示无限寻找全局最优。
+
+Claude research/arch 用读取与 Web 工具，simplify 与 dev 用编辑/执行工具，review 用 Read/Grep/Glob 白名单。Codex 子角色继承父权限，只读及不递归派发为行为约定。已核读的 Grok 随包及官方仓库文档支持直接 subagent_type；按实际工具 schema 选择具名角色，缺选择器时才用 Workflow。Grok research/arch/review 保留排除 MCP 元工具的原生声明；发现角色不等于已验证实际工具隔离。版本及当前证据范围见 [设计](docs/design.md)与[验证记录](docs/validation.md)。
+
+项目自己的指令仍由各 CLI 加载。Grok 还兼容 Claude 指令和扩展；Codex、Grok 都有配置根之外的 skills 发现路径。开发入口不承诺隔离已有全局扩展；上述清理用于移走废弃的用户级来源，项目规则继续保留。
+
+## 安装归属
+
+安装器管理以下资源；已有内容变化前完整备份，相同内容不重写：
+
+| 平台 | 受管资源 |
+| --- | --- |
+| Claude | `.claude-dev/CLAUDE.md`、`agents/`、`skills/` 和入口 |
+| Codex | `.codex/dev.config.toml`、`.codex-dev/AGENTS.md`、`agents/`、模板中的工作流子目录和入口 |
+| Grok | `.grok-dev/AGENTS.md`、`skills/`、`.grok/agents/{research,arch,dev,simplify,review}.md` 和入口 |
+
+Codex/Grok 的 `develop` 是根规则引用绝对路径的工作流文档，项目目标、实质简化、协调与恢复时读取，不注册到全局技能目录。Claude 使用原生 skill。Codex 的基础 `config.toml` 不属于普通安装的写入范围。Grok 逐个安装五个角色，普通安装保留其他用户角色；普通 `grok` 也能发现这五个角色。清理模式会移走旧用户角色，同时保留新发布的五个角色。Codex 原生 `skills/.system` 保留。
+
+Codex 开发 profile 仍是生成文件；升级额外保留其中已有的顶层 `model`、`model_reasoning_effort` 字符串选择，未设置时不新增默认值。其他手写字段和注释不保证保留，个人运行配置通常放原生基础配置或启动参数。当前配置文件不能证明已有会话的实际挡位，排查时以原生会话记录为准。
+
+Claude 只在 `settings.json` 中管理一条 `claudeMdExcludes`，排除运行安装器时 HOME 下的默认 `.claude` 指令，保留其他设置。清理模式另移除明确的旧扩展注册。不要把个人扩展直接放在安装器整体管理的目录中。
+
+`--home DIR` 指定安装与清理目标，不更改进程 HOME；Codex/Grok 使用该目录下的标准 `.codex`、`.grok` 位置，运行时应使用对应 HOME。若安装环境中的 `CODEX_HOME` 或 `GROK_HOME` 指向不同目录，所选端会在发布前明确报错。本安装器不迁移自定义配置根；以后更换运行 HOME 或自定义根，需在新根准备相应 profile 和角色。Claude 排除项仍根据安装进程 HOME 生成；要为另一运行 HOME 安装，应在相应 HOME 环境执行。源文件和目标父目录遇到不支持的链接或类型会明确失败。
+
+可用临时目录预演，避免修改真实配置：
+
+```sh
+mkdir -p /tmp/dev-profile-preview
+env -u CODEX_HOME -u GROK_HOME HOME=/tmp/dev-profile-preview \
+  ./install.sh --target all --home /tmp/dev-profile-preview
 ```
 
-第一条运行安装行为和内容契约检查；第二条需要两端 CLI，通过本地模拟模型检查实际安装内容是否进入请求、普通配置是否保持独立，不消耗云模型调用。未设置 `CLAUDEX_TEST_CLI=1` 时原生 CLI 检查跳过；缺少某个 CLI 时也会明确跳过，对应端不能算验证通过。
+## 验证与依据
 
-- [Prompt / context / harness 研究](docs/research-harness.md)：官方证据、常驻与按需规则、8 类真实质量评估任务。
-- [任务图与 skills 研究](docs/research-orchestration.md)：并行与恢复语义、技能编写方法及平台边界。
-- [设计决策](docs/design.md)：取舍、安装契约与验收范围。
-- [验证记录](docs/validation.md)：具体命令、原生并行、技能行为及未验证范围。
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
+```
 
-这些规范以更少的重复规则和更明确的验收支持开发质量；模板简短、格式有效或单次评审通过都不能证明所有项目的质量和速度会提高。新旧配置的多次同条件对照应按研究中的评估方法继续积累。
+安装测试在临时 HOME 中检查发布、清理、备份和参数透传。Codex/Grok 的原生加载检查不调用模型；Claude 的 opt-in 协议检查需要 localhost socket 权限：
+
+```sh
+CLAUDE_DEV_TEST_CLI=1 PYTHONDONTWRITEBYTECODE=1 \
+  python3 -m unittest discover -s tests -p test_cli.py -v
+```
+
+配置加载不证明模型能自主完成任务。实际模型评估和未验证项见 [验证记录](docs/validation.md)、[行为评估](evals/README.md)。角色职责和安装边界见 [设计](docs/design.md)，来源与取舍见 [调研](docs/research.md)，当前执行状态见 [计划](plan.md)。
+
+## 许可证
+
+本项目采用 [MIT 许可证](LICENSE)。

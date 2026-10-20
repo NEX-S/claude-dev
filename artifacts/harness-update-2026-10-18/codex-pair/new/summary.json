@@ -1,0 +1,74 @@
+{
+  "thread_id": "01a14c13-56a6-7570-b085-5a63a266928b",
+  "model_evidence": {
+    "native_rollout": "/home/nex/.codex/sessions/2026/10/18/rollout-2026-10-18T06-54-58-01a14c13-56a6-7570-b085-5a63a266928b.jsonl",
+    "turn_contexts": [
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "cwd": "/tmp/codex-harness-pair-a8dnefl_/new/project",
+        "approval_policy": "never",
+        "sandbox_policy": {
+          "type": "danger-full-access"
+        }
+      }
+    ]
+  },
+  "terminal_events": [
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 84270,
+        "cached_input_tokens": 61056,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2885,
+        "reasoning_output_tokens": 164
+      }
+    }
+  ],
+  "role_usage_observed": [],
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1253,
+      "sha256": "c53b76bf7d3ba10ffbcfa7f279ec8395eeaac9bc529df3175bb86419e903dfdb",
+      "physical_lines": 26
+    },
+    {
+      "path": "__pycache__/test_tasks.cpython-314.pyc",
+      "bytes": 6451,
+      "sha256": "86abf8de6846b72e1b30a03668b74b636ad8d00dfbcbbd29e0d5d4fb519470fa"
+    },
+    {
+      "path": "tasks.py",
+      "bytes": 2955,
+      "sha256": "dbb01f8ec82d040e7255d68f906f1582e7254046e673de3ad5795ef65b704b15",
+      "physical_lines": 83
+    },
+    {
+      "path": "test_tasks.py",
+      "bytes": 2920,
+      "sha256": "6e626f7a52c95ca35274e6d218c0104637d8387509fae9427daf5bfd44f5f9a5",
+      "physical_lines": 78
+    }
+  ],
+  "native_unit_tests": [
+    {
+      "command": "/bin/zsh -lc 'python3 -m unittest -v'",
+      "exit_code": 0,
+      "output": "test_database_errors_have_no_success_output (test_tasks.TaskCliTests.test_database_errors_have_no_success_output) ... ok\ntest_empty_ledger (test_tasks.TaskCliTests.test_empty_ledger) ... ok\ntest_invalid_operations_leave_tasks_unchanged (test_tasks.TaskCliTests.test_invalid_operations_leave_tasks_unchanged) ... ok\ntest_persistent_workflow_and_exact_output (test_tasks.TaskCliTests.test_persistent_workflow_and_exact_output) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.766s\n\nOK\n"
+    }
+  ],
+  "external_acceptance_exit": 0,
+  "external_assertions_passed": 14,
+  "instrumentation_note": null,
+  "native_cli_exit_code": 0,
+  "native_top_level_tool_names": {
+    "exec": 3
+  },
+  "native_nested_tool_names": {
+    "exec_command": 3,
+    "apply_patch": 2
+  },
+  "role_usage_observation_basis": "No spawn_agent/followup_task/custom collaboration events or tool calls observed in native root rollout and JSONL; all work was in root."
+}

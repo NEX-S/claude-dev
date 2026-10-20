@@ -1,0 +1,22 @@
+已加入 `rename ID TITLE`，并完成验证。用法：
+
+```sh
+python3 tasks.py --db PATH rename ID "  新标题 中文  "
+```
+
+[实现](/home/nex/.cache/harness-quality-20261019/ledger-before/project/tasks.py)直接使用参数化 SQL 更新 `title`，沿用现有事务和错误处理，没有新增抽象层或依赖：
+
+- 原样保留标题的空白和 Unicode，任务 ID、完成状态不变。
+- 成功时 stdout 为空。
+- 纯空白标题、不存在的 ID、参数错误及数据库错误均非零退出，stderr 包含原因，stdout 为空。
+- 其余 CLI 行为和 SQLite 数据格式保持不变，README 已补充命令说明。
+
+运行 `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v`，**10 项测试全部通过**。新增检查覆盖待办和已完成任务的重命名、重复设置相同标题、跨调用持久化、`list`/`export` 输出、无效输入，以及 SQLite 触发器拒绝更新时保留原始错误且数据不变。兼容性检查在 `existing.db` 的临时副本上完成，确认重命名后原有数据、表结构和自增序列符合预期。
+
+所有修改数据的检查均使用项目内临时数据库，临时目录已清理。`existing.db` 的 SHA-256 仍为：
+
+```text
+8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58
+```
+
+所有改动均限于当前临时项目。

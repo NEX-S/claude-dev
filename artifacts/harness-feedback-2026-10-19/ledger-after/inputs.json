@@ -1,0 +1,40 @@
+{
+  "seed_hashes": {
+    "existing.db": "8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58",
+    "README.md": "04e2dd7a25e68abf8730dd1343b4cb3c065596c28175b207448c0deb8e736236",
+    "application.py": "c138901b21898ab1290868d3ce0b8c3ae84c0ec65f9cca63edb3efb6600c2ff8",
+    "repository.py": "8a4731a8b43a51a2f1e764782eb677e0d4e9b3b97108e06702a7cf4e1930d559",
+    "persistence.py": "c712b126a5af69d32c7e7f157ae7c3735a4771118164d5cf501406af3af0a890",
+    "domain.py": "dca5f036dda09e40afbf063f41292d6915a34463c937444f83f78cf38e35e87a",
+    "tasks.py": "0a16f93d0dbc785693d97939c45ffda700336f5804864361df3901cf804c2e58"
+  },
+  "template_hashes": {
+    "CLAUDE.md": "8232b93356ab868a351a522ffb11884a7e4d65de98b60bf5b51f0b9eff53c647",
+    "agents/arch.md": "7e6734873ec6cbdf602a967d8643c0a2f652fa37474ab6f7c3fdbcf91e00b53b",
+    "agents/dev.md": "b53a5e8ed024c0df35860098d7aab299b5ee272413696951546d8ecc4aa6df62",
+    "agents/review.md": "b77d398c6d1891aa394db314a0e2a97124736ad8ce5f9e9df95ba8d6ec999ab6",
+    "agents/research.md": "9068af30cd38a450a07a29d9c6606684f816c9f1f611bd0eb24828b739a56d89",
+    "agents/simplify.md": "86c3763a450334ced723b68971263573b91e5c186b9460615f1b396d29e51ebd",
+    "grok/AGENTS.md": "a7d4dbdce0d0ca19c399cbb77939743a384195b9a571ea9401ee0c75b80cb7c6",
+    "codex/AGENTS.md": "b0cb4533beab45c06e5bd691aee2516d760c36191f8ce3bd171e6d585cf0a824",
+    "codex/config.toml": "d7e99f60a2f40a29d0b7ac68e224ae8f1e90c965fcfa03196f9d319e5785721e",
+    "codex/agents/arch.toml": "95393a5d31e58ebb078f5b0ece19ed40dd337b17441f3eeee0d7751e8e558737",
+    "codex/agents/dev.toml": "81495cd45cc93087160dab6e5b8e36d40c96f29612b93b00ca5c221f781b288a",
+    "codex/agents/review.toml": "a70f2a1a361ef862f298aec341e4aa161521df3019d0c5603a30de0af0cc6563",
+    "codex/agents/research.toml": "6d4070fb741f73fa9702495c0d1a5d9daa9128883f695efcf950ab11e2f310f2",
+    "codex/agents/simplify.toml": "685148631b3dbb96e29a095e074396ade8c98f7ec4c6d79ad797b5098052225f",
+    "codex/skills/develop/SKILL.md": "edcf6c0db1e730dd41b14acc0b2776b187a69a5a8ac1a2071dd89b477619a565",
+    "grok/agents/arch.md": "0ac2827526d1fe6a065aa680ab4cce0a61aa213fb07010a25df16a64ed1ff34c",
+    "grok/agents/dev.md": "022470967c330312d477dbed11d36b975a2c03eae57f52dc2d82181e59d55b8e",
+    "grok/agents/review.md": "6eaf502d456458c8775b50f187ec563cc6ba64e4bf48261bf3e66957778f5e26",
+    "grok/agents/research.md": "28bc4f77dacdaf97bc2e8c8e9eec32bce7d1904362d3874042e4928a64f4f22e",
+    "grok/agents/simplify.md": "a62196a6e772906a81710a227c9f317d3ed32d54227f14dc87faff755ce036aa",
+    "grok/skills/develop/SKILL.md": "bc69d1b51feb3b2cf3b9bde8b3dfae39096b57d4ead7b8dbf9afed3be3567965",
+    "skills/develop/SKILL.md": "3b1ac7078e234201d970d4e1e504e6ae15e681c8edb7c1bbbfbfe02293b2b015"
+  },
+  "model": "gpt-6.1-sol",
+  "effort": "medium",
+  "native_home_unchanged": true,
+  "staged_overlay": true,
+  "timeout_seconds": 300
+}

@@ -1,0 +1,17 @@
+[
+  "README.md",
+  "docs/design.md",
+  "docs/research.md",
+  "templates/CLAUDE.md",
+  "templates/agents/dev.md",
+  "templates/agents/simplify.md",
+  "templates/grok/AGENTS.md",
+  "templates/codex/AGENTS.md",
+  "templates/codex/agents/dev.toml",
+  "templates/codex/agents/simplify.toml",
+  "templates/codex/skills/develop/SKILL.md",
+  "templates/grok/agents/dev.md",
+  "templates/grok/agents/simplify.md",
+  "templates/grok/skills/develop/SKILL.md",
+  "templates/skills/develop/SKILL.md"
+]

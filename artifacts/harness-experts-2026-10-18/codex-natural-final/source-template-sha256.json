@@ -1,0 +1,10 @@
+{
+  "AGENTS.md": "ef22046611a77354057aaec1140a8f06a24f8d2c55e64dae331edb476ffc4619",
+  "agents/arch.toml": "95393a5d31e58ebb078f5b0ece19ed40dd337b17441f3eeee0d7751e8e558737",
+  "agents/dev.toml": "52d78ced9aa7d9500922b469d6dcef4fbf0753bc1a0814cb54000740707334fa",
+  "agents/research.toml": "6d4070fb741f73fa9702495c0d1a5d9daa9128883f695efcf950ab11e2f310f2",
+  "agents/review.toml": "a70f2a1a361ef862f298aec341e4aa161521df3019d0c5603a30de0af0cc6563",
+  "agents/simplify.toml": "9e97bce458f495e683b28314689f317bc8947eff491b11f05315b47d71c4c97c",
+  "config.toml": "ef69323d9943ad245cc7e3e8c88c3cd1e35c92ddfed10ea874fd5e2cf26c4de0",
+  "skills/develop/SKILL.md": "31bdae7b91108dfda420597533d2649da46e762fee74c1f47a8c2935432c04ee"
+}

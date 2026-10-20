@@ -1,0 +1,8 @@
+{
+  "changed_files": [
+    "README.md"
+  ],
+  "only_readme_changed": true,
+  "readme": "# Greeting example\n",
+  "greet_unchanged": true
+}

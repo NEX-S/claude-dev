@@ -1,0 +1,27 @@
+[
+  {
+    "argv": [
+      "/home/nex/GitHub/claude-dev/install.sh",
+      "--target",
+      "all",
+      "--home",
+      "/tmp/claude-dev-staged-install-wmys3p07/home"
+    ],
+    "exit_code": 0,
+    "stdout": "Backup: /tmp/claude-dev-staged-install-wmys3p07/home/.local/state/claude-dev/backups/install-hrLGJG\n  backed up: /tmp/claude-dev-staged-install-wmys3p07/home/.grok-dev/AGENTS.md -> /tmp/claude-dev-staged-install-wmys3p07/home/.local/state/claude-dev/backups/install-hrLGJG/.grok-dev/AGENTS.md\n  wrote: /tmp/claude-dev-staged-install-wmys3p07/home/.grok-dev/AGENTS.md\nInstalled claude-dev, codex-dev, grok-dev. Ensure /tmp/claude-dev-staged-install-wmys3p07/home/.local/bin is on PATH.\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "/home/nex/GitHub/claude-dev/install.sh",
+      "--target",
+      "all",
+      "--home",
+      "/tmp/claude-dev-staged-install-wmys3p07/home",
+      "--dry-run"
+    ],
+    "exit_code": 0,
+    "stdout": "No managed files changed.\nDry run: no installation paths changed.\n",
+    "stderr": ""
+  }
+]

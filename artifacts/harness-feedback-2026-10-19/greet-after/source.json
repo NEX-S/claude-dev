@@ -1,0 +1,17 @@
+{
+  "source": "/home/nex/GitHub/claude-dev/templates/codex",
+  "source_kind": "staged overlay with ordinary native HOME",
+  "cli_version": "codex-cli 0.163.0",
+  "model": "gpt-6.1-sol",
+  "requested_reasoning_effort": "medium",
+  "staged_sha256": {
+    "AGENTS.md": "b0cb4533beab45c06e5bd691aee2516d760c36191f8ce3bd171e6d585cf0a824",
+    "config.toml": "d7e99f60a2f40a29d0b7ac68e224ae8f1e90c965fcfa03196f9d319e5785721e",
+    "agents/arch.toml": "95393a5d31e58ebb078f5b0ece19ed40dd337b17441f3eeee0d7751e8e558737",
+    "agents/dev.toml": "81495cd45cc93087160dab6e5b8e36d40c96f29612b93b00ca5c221f781b288a",
+    "agents/review.toml": "a70f2a1a361ef862f298aec341e4aa161521df3019d0c5603a30de0af0cc6563",
+    "agents/research.toml": "6d4070fb741f73fa9702495c0d1a5d9daa9128883f695efcf950ab11e2f310f2",
+    "agents/simplify.toml": "685148631b3dbb96e29a095e074396ade8c98f7ec4c6d79ad797b5098052225f",
+    "skills/develop/SKILL.md": "edcf6c0db1e730dd41b14acc0b2776b187a69a5a8ac1a2071dd89b477619a565"
+  }
+}

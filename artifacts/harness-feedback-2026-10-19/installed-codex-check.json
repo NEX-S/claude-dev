@@ -1,0 +1,17 @@
+{
+  "root_occurrences": 1,
+  "developer_matches_installed_root": true,
+  "explicit_choices_preserved": {
+    "model": true,
+    "model_reasoning_effort": true
+  },
+  "model": "gpt-6.1-sol",
+  "effort": "medium",
+  "registered_roles": [
+    "research",
+    "arch",
+    "dev",
+    "simplify",
+    "review"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "recorded_at_utc": "2026-10-17T22:59:25.341886+00:00",
+  "local_suite": {
+    "command": "CLAUDE_DEV_TEST_CLI=1 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v",
+    "tests": 45,
+    "failures": 0,
+    "skipped": 0,
+    "seconds": 29.252,
+    "native_exec_session": 46383
+  },
+  "baseline": {
+    "tests": 45,
+    "passed": 39,
+    "failed": 1,
+    "skipped": 5,
+    "seconds": 34.979,
+    "failure": "Grok 1.0.52 now auto-starts native login instead of waiting at old Login with Grok UI; test corrected against native auth request and still protects shared cached auth."
+  },
+  "skill_format": {
+    "claude": "valid",
+    "codex": "valid",
+    "grok": "valid",
+    "validator": "skill-creator/scripts/quick_validate.py"
+  },
+  "native_versions": {
+    "claude": "2.1.302",
+    "codex": "0.163.0",
+    "grok": "1.0.52"
+  },
+  "static_checks": {
+    "git_diff_check": "passed",
+    "local_document_links": "all resolved",
+    "codex_TOML": "parsed",
+    "untracked_grok_test_whitespace": "passed (no diagnostics; --no-index difference exit 1 is expected)",
+    "historical_canvas_compile": "bun build passed; no visual rendering claim"
+  },
+  "independent_review": {
+    "scope": "3 root contracts, 3 develop workflows, 9 role files",
+    "result": "no material findings; full requirements, necessary boundaries and useful abstractions remain supported"
+  },
+  "scope_limits": [
+    "No live HOME installation or credential change. Native behavior trials use documented config/project overlays.",
+    "Codex task did not dispatch roles/read develop, and showed no clear improvement over old templates.",
+    "Claude prompt loading is proven; real model behavior is blocked by native Not logged in in both plain and actual development config roots.",
+    "Grok small task and named review prove direct edit/verification, direct named routing, review role/tool isolation and parent completion; not nonempty MCP inheritance or complex-project quality improvement."
+  ],
+  "grok_named_review": {
+    "evidence": "grok-named-review/summary.json",
+    "native_route": "spawn_subagent.subagent_type=review",
+    "child_role": "review",
+    "child_tools": [
+      "read_file",
+      "list_dir",
+      "grep"
+    ],
+    "child_role_body_exact_occurrences": 1,
+    "child_completed": true,
+    "parent_exit_code": 0,
+    "project_file_delta": []
+  },
+  "final_template_manifest": "template-sha256.json",
+  "staged_install": "staged-install.json (updated after final Grok root wording)"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "spawn_subagent",
+  "subagent_type_schema": {
+    "type": "string",
+    "enum": [
+      "arch",
+      "dev",
+      "research",
+      "review",
+      "simplify"
+    ],
+    "description": "Omit for a general-purpose subagent. Set it to hand the task to one of these agents:\n- arch: Choose the least complex complete design from current requirements, existing code and relevant research.\n- dev: Implement an independent outcome with direct code, appropriate verification and necessary repairs.\n- research: Clarify a broad goal or decision-relevant unknown from the actual project and primary sources; return scope, evidence and necessary user questions.\n- review: Review actual behavior and design necessity; identify concrete defects or avoidable complexity without adding speculative guarantees.\n- simplify: Simplify a working project by removing unnecessary responsibilities, states and layers while preserving required behavior and data."
+  },
+  "required": [
+    "prompt",
+    "description"
+  ]
+}

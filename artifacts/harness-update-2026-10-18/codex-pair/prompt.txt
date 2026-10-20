@@ -1,0 +1,1 @@
+在空目录实现一个 Python 标准库的本地单人任务账本。真实入口 python3 tasks.py --db PATH COMMAND。add TITLE 创建待办并输出整数ID；list 按ID递增输出JSON数组，每项恰为id/title/done，done为JSON布尔；done ID 把已有任务标为完成；export 按ID递增输出Markdown，每行 - [ ] TITLE 或 - [x] TITLE。数据跨调用持久化。标题允许空格和中文，拒绝空白标题；不存在的ID报错。用户操作失败须非零退出，stderr有原因，不能输出成功结果。交付完整可用实现并验证行为，最后简述设计取舍与实际检查。只在当前临时项目中工作。

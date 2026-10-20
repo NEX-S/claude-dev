@@ -1,0 +1,14 @@
+{
+  "native_pid": 1790382,
+  "supervisor_pid": 1790381,
+  "start_epoch": 1792278016.7898235,
+  "bounded_timeout_s": 180,
+  "config_dir_overrides": {
+    "GROK_HOME": false,
+    "GROK_CONFIG_DIR": false
+  },
+  "bounded_stop": false,
+  "exit_code": 0,
+  "end_epoch": 1792278058.5417597,
+  "elapsed_seconds": 41.75193667411804
+}

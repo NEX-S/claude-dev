@@ -1,0 +1,23 @@
+已完成简化，所有改动仅在当前临时项目内。CLI、输出、失败语义及 SQLite 数据格式保持兼容，`existing.db` 字节原样保留。
+
+核心实现现在集中在 [tasks.py](/home/nex/.cache/harness-quality-20261019/ledger-after/project/tasks.py:8)，执行路径直接是“解析参数 → SQLite 操作 → 格式化输出”。删除了四个内部模块中的 gateway、service、repository、后端注册、连接工厂、重复任务模型和投影转换，也移除了没有恢复动作的读取重试。当前四个命令不再需要跨多层转发才能理解。
+
+取舍是放弃当前没有调用者或需求的内部扩展结构。仍只使用 Python 标准库，保留参数化 SQL、原表定义、自动递增 ID、标题原始空白与 Unicode、JSON 布尔值和 ID 排序。成功输出仍在事务提交和连接关闭之后发生，避免提交失败却打印成功 ID。
+
+新增了 [test_tasks.py](/home/nex/.cache/harness-quality-20261019/ledger-after/project/test_tasks.py:16)，通过真实 CLI 子进程验证。最终执行：
+
+```text
+python3 -B -W error::ResourceWarning -m unittest -v
+Ran 6 tests in 6.069s
+OK
+```
+
+检查覆盖了跨调用持久化、精确 JSON/Markdown 输出、标题保留、重复完成、空数据库、无效标题、不存在的 ID、参数错误，以及损坏或无法打开数据库时的原始错误。还用真实 SQLite 读锁触发提交失败，确认非零退出、stderr 包含 `database is locked`、stdout 严格为空，且写入已回滚。
+
+`existing.db` 的只读完整性检查为 `ok`，现有两条记录及自增序列 `11` 保留；仅在项目内临时副本上测试新增和完成，确认新 ID 从 `12` 续接、原数据与表定义不变。原库修改前后的 SHA-256 均为：
+
+```text
+8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58
+```
+
+临时测试数据库均已清理，未留下缓存文件。

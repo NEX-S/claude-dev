@@ -1,0 +1,22 @@
+{
+  "simplify": {
+    "type": "project",
+    "path": "/tmp/claude-dev-grok-natural-after-5gpb7ykl/project/.grok/agents/simplify.md"
+  },
+  "research": {
+    "type": "project",
+    "path": "/tmp/claude-dev-grok-natural-after-5gpb7ykl/project/.grok/agents/research.md"
+  },
+  "review": {
+    "type": "project",
+    "path": "/tmp/claude-dev-grok-natural-after-5gpb7ykl/project/.grok/agents/review.md"
+  },
+  "dev": {
+    "type": "project",
+    "path": "/tmp/claude-dev-grok-natural-after-5gpb7ykl/project/.grok/agents/dev.md"
+  },
+  "arch": {
+    "type": "project",
+    "path": "/tmp/claude-dev-grok-natural-after-5gpb7ykl/project/.grok/agents/arch.md"
+  }
+}

@@ -1,0 +1,19 @@
+[agents.research]
+description = "Clarify a broad goal or decision-relevant unknown from the actual project and primary sources; return scope, evidence and necessary user questions."
+config_file = "agents/research.toml"
+
+[agents.arch]
+description = "Choose the least complex complete design from current requirements, existing code and relevant research."
+config_file = "agents/arch.toml"
+
+[agents.dev]
+description = "Implement an independent outcome with direct code, appropriate verification and necessary repairs."
+config_file = "agents/dev.toml"
+
+[agents.simplify]
+description = "Simplify a working project by removing unnecessary responsibilities, states and layers while preserving required behavior and data."
+config_file = "agents/simplify.toml"
+
+[agents.review]
+description = "Review actual behavior and design necessity; identify concrete defects or avoidable complexity without adding speculative guarantees."
+config_file = "agents/review.toml"

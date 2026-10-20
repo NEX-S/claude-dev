@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Local audit includes excerpts from other projects.
+/artifacts/harness-audit-2026-10-18.json

@@ -1,0 +1,34 @@
+{
+  "AGENTS.md": {
+    "sha256": "4b776a0856974de660d7293dcbbd6c4796ed78b63c29b0673fd614e1ca4aae51",
+    "bytes": 5455
+  },
+  "agents/arch.toml": {
+    "sha256": "95393a5d31e58ebb078f5b0ece19ed40dd337b17441f3eeee0d7751e8e558737",
+    "bytes": 2065
+  },
+  "agents/dev.toml": {
+    "sha256": "d78712fa6b9af6f0fbc8f631e3a27bc4ccad34457bc9dd4951cda8183ec9e236",
+    "bytes": 2169
+  },
+  "agents/research.toml": {
+    "sha256": "6d4070fb741f73fa9702495c0d1a5d9daa9128883f695efcf950ab11e2f310f2",
+    "bytes": 1946
+  },
+  "agents/review.toml": {
+    "sha256": "a70f2a1a361ef862f298aec341e4aa161521df3019d0c5603a30de0af0cc6563",
+    "bytes": 2022
+  },
+  "agents/simplify.toml": {
+    "sha256": "ffa9582a7a5bd9eb03a483ad807530c90d4915f1d33676eeeedd0adfc197838d",
+    "bytes": 2922
+  },
+  "config.toml": {
+    "sha256": "b8158a767bbc3cfe1ddd367b76843f8def91265a5aaca39369a7da108e8460f2",
+    "bytes": 960
+  },
+  "skills/develop/SKILL.md": {
+    "sha256": "6a15ea4784d14cdc19916ebd4b96a0931df5cd5a6e0cf96c614634bd8c77ef36",
+    "bytes": 6241
+  }
+}

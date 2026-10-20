@@ -1,0 +1,10 @@
+{
+  "pid": 2257027,
+  "session_id": "10cb1c21-05ec-4bcf-98f9-add98ddea6e3",
+  "started_utc": "2026-10-18T00:17:09.039677+00:00",
+  "fixed_timeout_seconds": 180,
+  "exit_code": -9,
+  "timed_out": true,
+  "elapsed_seconds": 180.01608304097317,
+  "finished_utc": "2026-10-18T00:20:09.055377+00:00"
+}

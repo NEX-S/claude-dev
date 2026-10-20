@@ -1,0 +1,19 @@
+{
+  "before_run": "/tmp/claude-dev-grok-natural-yoyr1q5o",
+  "after_run": "/tmp/claude-dev-grok-natural-after-5gpb7ykl",
+  "before_session_id": "bd126cb5-23aa-48ee-8bb6-880e212b5acb",
+  "after_session_id": "10cb1c21-05ec-4bcf-98f9-add98ddea6e3",
+  "same_task_sha256": true,
+  "same_seed_sha256": true,
+  "same_verifiers_sha256": true,
+  "fixed_timeout_seconds_each": 180,
+  "changed_template_paths": [
+    "templates/grok/AGENTS.md",
+    "templates/grok/skills/develop/SKILL.md",
+    "templates/grok/agents/dev.md",
+    "templates/grok/agents/simplify.md"
+  ],
+  "before_outcome": "180s timeout, no simplify call, unchanged original implementation",
+  "after_outcome": "180s timeout after natural simplify call with fresh context and exact role/tool loading, unchanged original implementation",
+  "inference_limit": "Sequential one-pair observation after multiple targeted template edits does not prove causality, general improvement, or superiority of any model."
+}

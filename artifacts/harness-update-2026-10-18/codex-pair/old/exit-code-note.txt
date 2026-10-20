@@ -1,0 +1,1 @@
+Native JSONL contains turn.completed and final.txt was written. The outer zsh bookkeeping then failed because status is a read-only shell variable; native CLI process exit code was not preserved. This is an instrumentation failure after the observed native terminal event. No model retry was performed.

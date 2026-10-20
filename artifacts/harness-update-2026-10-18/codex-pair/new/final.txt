@@ -1,0 +1,29 @@
+已完成，可直接运行，无需安装第三方依赖。
+
+交付文件：
+
+- [tasks.py](/tmp/codex-harness-pair-a8dnefl_/new/project/tasks.py)：完整命令行实现。
+- [test_tasks.py](/tmp/codex-harness-pair-a8dnefl_/new/project/test_tasks.py)：通过真实 CLI 子进程验证行为。
+- [README.md](/tmp/codex-harness-pair-a8dnefl_/new/project/README.md)：使用说明和设计说明。
+
+使用示例：
+
+```sh
+python3 tasks.py --db ./tasks.db add "学习 Python 标准库"
+python3 tasks.py --db ./tasks.db add "buy milk"
+python3 tasks.py --db ./tasks.db list
+python3 tasks.py --db ./tasks.db done 1
+python3 tasks.py --db ./tasks.db export
+```
+
+实现采用标准库 `sqlite3` 持久化，使用参数化 SQL 和事务，写入提交成功后才输出新 ID。标题保留原文，拒绝空字符串和全空白标题。`done` 成功时无输出，重复完成已有任务可成功；不存在的 ID 会报错。数据库文件自动创建，其所在目录需已存在。
+
+实际执行了 `python3 -m unittest -v`，**4 项测试全部通过**，覆盖：
+
+- 多次独立调用之间的数据持久化，以及空格、中文标题。
+- 整数 ID、按 ID 递增的 JSON 输出、精确字段和 JSON 布尔值。
+- 完成任务、重复完成，以及 Markdown 导出格式。
+- 空账本、空白标题、不存在或非法 ID、缺失参数及数据库错误。
+- 失败操作非零退出、stderr 有原因、stdout 无成功结果，且已有任务保持不变。
+
+所有交付文件和测试临时数据均位于当前临时项目内；测试临时数据库已自动清理。

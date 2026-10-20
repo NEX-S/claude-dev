@@ -1,0 +1,50 @@
+{
+  "exact_project_group": "/home/nex/.grok/sessions/%2Ftmp%2Fclaude-dev-grok-natural-after-5gpb7ykl%2Fproject",
+  "parent_session_id": "10cb1c21-05ec-4bcf-98f9-add98ddea6e3",
+  "child_session_id": "01a14c5f-18e1-7991-83cb-aa20d2b53961",
+  "role_body_occurrences": 1,
+  "tool_names": [
+    "run_terminal_command",
+    "read_file",
+    "search_replace",
+    "list_dir",
+    "grep",
+    "kill_command_or_subagent",
+    "todo_write",
+    "get_command_or_subagent_output",
+    "wait_commands_or_subagents",
+    "scheduler_create",
+    "scheduler_delete",
+    "scheduler_list",
+    "monitor",
+    "search_tool",
+    "use_tool",
+    "web_fetch",
+    "image_gen",
+    "image_edit",
+    "image_to_video",
+    "reference_to_video",
+    "write"
+  ],
+  "summary_selected": {
+    "current_model_id": "grok-4.7",
+    "reasoning_effort": "high",
+    "updated_at": "2026-10-18T00:20:05.871827436Z",
+    "sandbox_profile": "off",
+    "agent_name": "simplify",
+    "session_kind": "subagent"
+  },
+  "metadata_selected": {
+    "subagent_id": "01a14c5f-18e1-7991-83cb-aa20d2b53961",
+    "parent_session_id": "10cb1c21-05ec-4bcf-98f9-add98ddea6e3",
+    "child_session_id": "01a14c5f-18e1-7991-83cb-aa20d2b53961",
+    "subagent_type": "simplify",
+    "status": "running",
+    "started_at": "2026-10-18T00:17:43.143304208Z",
+    "effective_context_source": "new",
+    "child_cwd": "/tmp/claude-dev-grok-natural-after-5gpb7ykl/project",
+    "effective_model_id": "grok-4.7"
+  },
+  "metadata_path_exists": true,
+  "terminal_interpretation": "native host and process group terminated at fixed deadline; persisted running metadata has no completion event"
+}

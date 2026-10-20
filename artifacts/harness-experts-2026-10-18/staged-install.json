@@ -1,0 +1,80 @@
+{
+  "home": "/tmp/harness-experts-stage-jsw5iap9/home",
+  "results": [
+    {
+      "argv": [
+        "/home/nex/GitHub/claude-dev/install.sh",
+        "--target",
+        "all",
+        "--home",
+        "/tmp/harness-experts-stage-jsw5iap9/home"
+      ],
+      "exit_code": 0,
+      "stdout": "  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/CLAUDE.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/agents\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/skills\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.local/bin/claude-dev\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/AGENTS.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.codex/dev.config.toml\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/agents\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/skills/develop\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.local/bin/codex-dev\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok-dev/AGENTS.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/arch.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/dev.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/research.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/review.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/simplify.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok-dev/skills\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.local/bin/grok-dev\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/settings.json\nInstalled claude-dev, codex-dev, grok-dev. Ensure /tmp/harness-experts-stage-jsw5iap9/home/.local/bin is on PATH.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/nex/GitHub/claude-dev/install.sh",
+        "--target",
+        "all",
+        "--home",
+        "/tmp/harness-experts-stage-jsw5iap9/home",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "stdout": "No managed files changed.\nDry run: no installation paths changed.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/nex/GitHub/claude-dev/install.sh",
+        "--target",
+        "all",
+        "--home",
+        "/tmp/harness-experts-stage-jsw5iap9/home"
+      ],
+      "exit_code": 0,
+      "stdout": "Backup: /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-gALv6C\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/agents -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-gALv6C/.claude-dev/agents\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/agents\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.codex/dev.config.toml -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-gALv6C/.codex/dev.config.toml\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.codex/dev.config.toml\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/agents -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-gALv6C/.codex-dev/agents\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/agents\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/simplify.md -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-gALv6C/.grok/agents/simplify.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/simplify.md\nInstalled claude-dev, codex-dev, grok-dev. Ensure /tmp/harness-experts-stage-jsw5iap9/home/.local/bin is on PATH.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/nex/GitHub/claude-dev/install.sh",
+        "--target",
+        "all",
+        "--home",
+        "/tmp/harness-experts-stage-jsw5iap9/home",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "stdout": "No managed files changed.\nDry run: no installation paths changed.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/nex/GitHub/claude-dev/install.sh",
+        "--target",
+        "all",
+        "--home",
+        "/tmp/harness-experts-stage-jsw5iap9/home"
+      ],
+      "exit_code": 0,
+      "stdout": "Backup: /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/CLAUDE.md -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.claude-dev/CLAUDE.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/CLAUDE.md\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/agents -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.claude-dev/agents\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/agents\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/skills -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.claude-dev/skills\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.claude-dev/skills\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/AGENTS.md -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.codex-dev/AGENTS.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/AGENTS.md\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.codex/dev.config.toml -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.codex/dev.config.toml\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.codex/dev.config.toml\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/agents -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.codex-dev/agents\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/agents\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/skills/develop -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.codex-dev/skills/develop\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.codex-dev/skills/develop\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.grok-dev/AGENTS.md -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.grok-dev/AGENTS.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok-dev/AGENTS.md\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/dev.md -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.grok/agents/dev.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/dev.md\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/simplify.md -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.grok/agents/simplify.md\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok/agents/simplify.md\n  backed up: /tmp/harness-experts-stage-jsw5iap9/home/.grok-dev/skills -> /tmp/harness-experts-stage-jsw5iap9/home/.local/state/claude-dev/backups/install-0pRcao/.grok-dev/skills\n  wrote: /tmp/harness-experts-stage-jsw5iap9/home/.grok-dev/skills\nInstalled claude-dev, codex-dev, grok-dev. Ensure /tmp/harness-experts-stage-jsw5iap9/home/.local/bin is on PATH.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/home/nex/GitHub/claude-dev/install.sh",
+        "--target",
+        "all",
+        "--home",
+        "/tmp/harness-experts-stage-jsw5iap9/home",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "stdout": "No managed files changed.\nDry run: no installation paths changed.\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[
+  "claude",
+  "-p",
+  "--verbose",
+  "--output-format",
+  "stream-json",
+  "--permission-mode",
+  "bypassPermissions",
+  "--settings",
+  "{\"sandbox\":{\"enabled\":false}}",
+  "--append-system-prompt-file",
+  "/tmp/claude-dev-staged-greet-xarypgly/claude/evidence/root.rules.md"
+]

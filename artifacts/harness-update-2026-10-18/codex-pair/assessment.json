@@ -1,0 +1,137 @@
+{
+  "scope": "Exploratory one-pair native CLI behavior check; old first and new second, independent empty temporary projects and new sessions. It cannot establish general speed or quality differences.",
+  "controls": {
+    "cli": "0.163.0",
+    "actual_model_both": "gpt-6.1-sol",
+    "actual_effort_both": "medium",
+    "native_model_settings_preserved": true,
+    "auth_access": "Used normal native authentication without reading or copying auth files. No real HOME configuration or repository sources modified.",
+    "same_frozen_prompt": true,
+    "external_acceptance_frozen_before_arms": true,
+    "external_assertions_per_arm": 14,
+    "template_files_unchanged_during_pair": true,
+    "injection": "Native -c developer_instructions plus agents.arch/dev/review.config_file and description; absolute develop skill links. Exact argv, root instruction text, template snapshots and hashes preserved. Root instruction and user task exact presence verified in debug and live rollout. Child roles were available through config argv but not dispatched, so role behavior was not exercised."
+  },
+  "results": {
+    "old": {
+      "acceptance": "14/14",
+      "native_terminal": "turn.completed and final.txt",
+      "native_cli_exit": "unavailable due post-completion outer zsh bookkeeping mistake (read-only variable status); outer shell exit 1 preserved; no rerun",
+      "native_tests": "3 unittest tests passed, rerun after restricting test temporary directory to current project; both commands exit 0",
+      "production_source": {
+        "tasks.py": 81
+      },
+      "test_source": {
+        "test_tasks.py": 77
+      },
+      "role_usage": "root only; no arch/dev/review or develop skill read observed"
+    },
+    "new": {
+      "acceptance": "14/14",
+      "native_terminal": "turn.completed and final.txt",
+      "native_cli_exit": 0,
+      "native_tests": "4 unittest tests passed, command exit 0",
+      "production_source": {
+        "tasks.py": 83
+      },
+      "test_source": {
+        "test_tasks.py": 78
+      },
+      "other_artifacts": {
+        "README.md": 26,
+        "__pycache__/test_tasks.cpython-314.pyc": "generated test cache"
+      },
+      "role_usage": "root only; no arch/dev/review or develop skill read observed"
+    }
+  },
+  "direct_code_assessment": [
+    {
+      "topic": "Architecture and data flow",
+      "finding": "Both converge on argparse -> one execution function -> sqlite3 transaction -> boundary stdout, plus a small main entry point. Standard library owns durable storage and argument parsing. No repository/service/model layers, configurable backends, retry framework or speculative extension points were added. No material unnecessary responsibility was found in either small implementation.",
+      "locations": [
+        "old/project/tasks.py:11",
+        "old/project/tasks.py:24",
+        "old/project/tasks.py:69",
+        "new/project/tasks.py:11",
+        "new/project/tasks.py:24",
+        "new/project/tasks.py:70"
+      ]
+    },
+    {
+      "topic": "Errors and swallowed failures",
+      "finding": "Whitespace title validation occurs once at the CLI/application boundary. Missing task uses SQL rowcount. Both bind SQL values and defer successful output until after transaction exit/commit. Boundary catches report original cause text to stderr and return nonzero; no empty-success fallback or swallowed exception was observed. Different catch tuples and output conventions do not invalidate the frozen contract.",
+      "locations": [
+        "old/project/tasks.py:25",
+        "old/project/tasks.py:28",
+        "old/project/tasks.py:46",
+        "old/project/tasks.py:73",
+        "new/project/tasks.py:25",
+        "new/project/tasks.py:29",
+        "new/project/tasks.py:47",
+        "new/project/tasks.py:76"
+      ]
+    },
+    {
+      "topic": "Comments explain why",
+      "finding": "Production comments in both explain the need to wait until commit before producing success output; the new comment explicitly names commit failure. Neither adds extensive line-by-line narration. Old test comment on repeated completion mostly states selected behavior.",
+      "locations": [
+        "old/project/tasks.py:28",
+        "new/project/tasks.py:29",
+        "old/project/test_tasks.py:40"
+      ]
+    },
+    {
+      "topic": "Tests and self-imposed contracts",
+      "finding": "Both exercise the public CLI with independent subprocess calls rather than patching internals or requiring helpers/schema shape. Both additionally assert idempotent repeated done, no successful done output, increasing allocation order of IDs and exact trailing output formatting. These are reasonable chosen behaviors, but the original contract did not require every one of them, so tests/docs partially promote implementation choices into a larger contract. Both use SQLite AUTOINCREMENT even though the task requires integer IDs and ascending listing, not never-reused IDs. Old adds giant integer/quote/corrupt-database cases; new omits the giant integer and adds README. No refusal to simplify or persistence of a failed invented mechanism was observed.",
+      "locations": [
+        "old/project/test_tasks.py:38",
+        "old/project/test_tasks.py:39",
+        "old/project/test_tasks.py:41",
+        "old/project/test_tasks.py:61",
+        "new/project/test_tasks.py:40",
+        "new/project/test_tasks.py:48",
+        "new/project/test_tasks.py:49",
+        "new/project/README.md:15",
+        "old/project/tasks.py:33",
+        "new/project/tasks.py:34"
+      ]
+    },
+    {
+      "topic": "Comparison limit",
+      "finding": "The samples are structurally very similar. New is not shorter in source lines and adds README/test cache; old performed an extra justified rerun after a test-location change. These observations neither establish a regression nor support a general claim that the new profile improves speed, simplicity or quality. Role-specific improvements remain untested in this task."
+    }
+  ],
+  "material_limitations": [
+    "Single task, one run per arm, fixed old-to-new ordering, no statistical inference.",
+    "Old native process exit code was not captured because of outer shell bookkeeping, despite observed completed native turn and final message.",
+    "The native CLI warns in both arms that preexisting user config disable_response_storage and network_access are ignored; no such config was read or modified.",
+    "No arch/dev/review dispatch occurred. debug prompt-input renders messages rather than tool-role schemas, so description strings are absent from that JSON; native argv and accepted config are retained without claiming child behavior validation."
+  ],
+  "evidence_index": {
+    "prompt": "prompt.txt",
+    "external_acceptance": "acceptance.py",
+    "external_acceptance_sha256": "acceptance.sha256",
+    "per_arm": [
+      "argv.json",
+      "command.sh",
+      "overrides.json",
+      "root-instructions.md",
+      "debug-argv.json",
+      "debug-prompt.json",
+      "debug-verification.json",
+      "live-injection-verification.json",
+      "template-snapshot/",
+      "template-hashes.json",
+      "template-hashes-still-match.json",
+      "native.jsonl",
+      "stderr.log",
+      "final.txt",
+      "native-model-evidence.json",
+      "acceptance.json",
+      "acceptance-stderr.log",
+      "acceptance-exit-code.txt",
+      "summary.json",
+      "project/"
+    ]
+  }
+}

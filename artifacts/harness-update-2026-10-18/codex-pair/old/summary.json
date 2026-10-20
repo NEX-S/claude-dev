@@ -1,0 +1,68 @@
+{
+  "thread_id": "01a14c12-6168-70b2-af5c-177f8f53e32e",
+  "model_evidence": {
+    "native_rollout": "/home/nex/.codex/sessions/2026/10/18/rollout-2026-10-18T06-53-55-01a14c12-6168-70b2-af5c-177f8f53e32e.jsonl",
+    "turn_contexts": [
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "cwd": "/tmp/codex-harness-pair-a8dnefl_/old/project",
+        "approval_policy": "never",
+        "sandbox_policy": {
+          "type": "danger-full-access"
+        }
+      }
+    ]
+  },
+  "terminal_events": [
+    {
+      "type": "turn.completed",
+      "usage": {
+        "input_tokens": 109932,
+        "cached_input_tokens": 84864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2880,
+        "reasoning_output_tokens": 218
+      }
+    }
+  ],
+  "role_usage_observed": [],
+  "files": [
+    {
+      "path": "tasks.py",
+      "bytes": 2905,
+      "sha256": "2c2be5e936a267ead290bda50bdc5ba0960d3d85ce9ae88f214938c558fd0553",
+      "physical_lines": 81
+    },
+    {
+      "path": "test_tasks.py",
+      "bytes": 3149,
+      "sha256": "2db5e145539d02ff8152b7c52ce9c7a5f60e8f087c960d051c6e234b79e9c0e6",
+      "physical_lines": 77
+    }
+  ],
+  "native_unit_tests": [
+    {
+      "command": "/bin/zsh -lc 'python3 -m unittest -v'",
+      "exit_code": 0,
+      "output": "test_database_failures_have_no_success_output (test_tasks.TaskLedgerTests.test_database_failures_have_no_success_output) ... ok\ntest_invalid_operations_do_not_change_tasks (test_tasks.TaskLedgerTests.test_invalid_operations_do_not_change_tasks) ... ok\ntest_persistent_workflow_and_exact_output (test_tasks.TaskLedgerTests.test_persistent_workflow_and_exact_output) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.930s\n\nOK\n"
+    },
+    {
+      "command": "/bin/zsh -lc 'python3 -B -m unittest -v'",
+      "exit_code": 0,
+      "output": "test_database_failures_have_no_success_output (test_tasks.TaskLedgerTests.test_database_failures_have_no_success_output) ... ok\ntest_invalid_operations_do_not_change_tasks (test_tasks.TaskLedgerTests.test_invalid_operations_do_not_change_tasks) ... ok\ntest_persistent_workflow_and_exact_output (test_tasks.TaskLedgerTests.test_persistent_workflow_and_exact_output) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 1.056s\n\nOK\n"
+    }
+  ],
+  "external_acceptance_exit": 0,
+  "external_assertions_passed": 14,
+  "instrumentation_note": "Native JSONL contains turn.completed and final.txt was written. The outer zsh bookkeeping then failed because status is a read-only shell variable; native CLI process exit code was not preserved. This is an instrumentation failure after the observed native terminal event. No model retry was performed.",
+  "native_cli_exit_code": null,
+  "native_top_level_tool_names": {
+    "exec": 4
+  },
+  "native_nested_tool_names": {
+    "exec_command": 5,
+    "apply_patch": 2
+  },
+  "role_usage_observation_basis": "No spawn_agent/followup_task/custom collaboration events or tool calls observed in native root rollout and JSONL; all work was in root."
+}

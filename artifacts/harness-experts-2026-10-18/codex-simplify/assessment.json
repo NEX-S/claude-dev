@@ -1,0 +1,112 @@
+{
+  "experiment": "One native Codex named simplify trial over an already-working SQLite CLI with genuine excess structure.",
+  "staged_overlay": true,
+  "timeout_seconds": 180,
+  "runs": 1,
+  "native_exit": {
+    "pid": 2182230,
+    "started_at": "2026-10-18T00:05:16.647413+00:00",
+    "timeout_seconds": 180,
+    "staged_overlay": true,
+    "model_override": false,
+    "effort_override": false,
+    "returncode": 0,
+    "timed_out": false,
+    "elapsed_seconds": 164.364,
+    "ended_at": "2026-10-18T00:08:01.013388+00:00"
+  },
+  "native_process_group_live": false,
+  "models": [
+    {
+      "origin": "parent",
+      "timestamp": "2026-10-18T00:05:28.084Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium"
+    },
+    {
+      "origin": "simplify",
+      "timestamp": "2026-10-18T00:05:58.459Z",
+      "model": "gpt-6.1-sol",
+      "effort": "medium"
+    }
+  ],
+  "parent_thread_id": "01a14c53-b846-7172-a7a2-dfb13e3b4731",
+  "simplify_thread_id": "01a14c54-39a4-7bf3-ac78-557c20ec3307",
+  "simplify_agent_path": "/root/simplify",
+  "role_instructions_found": true,
+  "baseline": {
+    "original_acceptance_passed": 14,
+    "supplement_passed": 8
+  },
+  "final": {
+    "original_acceptance_passed": 14,
+    "supplement_passed": 8
+  },
+  "existing_db_sha256": "8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58",
+  "existing_db_bytes_unchanged": true,
+  "readme_bytes_unchanged": true,
+  "deleted_python_modules": [
+    "application.py",
+    "domain.py",
+    "persistence.py",
+    "repository.py"
+  ],
+  "quality_inspection": {
+    "before_real_path": "tasks.main -> TaskGateway -> TaskService -> TaskRepository -> SQLiteBackend -> ConnectionFactory/DatabaseLocation -> sqlite3; reads TaskRow -> Task -> mapping/markdown projection",
+    "after_real_path": "tasks.main -> argparse -> sqlite3 transaction -> direct rows-to-JSON/Markdown -> output after commit and close",
+    "removed_current_responsibilities": [
+      "Gateway/service/repository forwarding of four fixed operations",
+      "One-backend registry and settings/path/connection wrappers",
+      "TaskRow and Task intermediate representations plus duplicate done/marker state",
+      "Projection copying an already-built mapping",
+      "Read retry with no state change or recovery action"
+    ],
+    "preserved": [
+      "Existing CLI and SQLite tasks table/data",
+      "Boundary title validation and parameterized SQL",
+      "Transaction before success output and deterministic connection cleanup",
+      "Original SQLite cause on errors"
+    ],
+    "not_scored_by": [
+      "LOC",
+      "file count",
+      "role call count",
+      "deletion quota"
+    ],
+    "material_findings": []
+  },
+  "model_self_checks": {
+    "caution": "Independent outer acceptance is authoritative; model self-reported counts are supporting trace evidence only.",
+    "parent_script_false_assumption": "An initial parent verification tried a read-only SQLite URI as CLI db path, which the original CLI did not promise. Parent corrected only its check, not implementation; subsequent checks passed."
+  },
+  "limits": [
+    "One explicitly requested named-role run; no old/new causal quality comparison",
+    "Does not establish natural autonomous role choice or all five stages",
+    "No implementation defect required a follow-up repair, so repair continuity was not behaviorally exercised",
+    "Only Codex was run in this experiment; no Claude/Grok behavior claim"
+  ],
+  "evidence_directory": "artifacts/harness-experts-2026-10-18/codex-simplify",
+  "frozen_input_hashes_verified_after_run": true,
+  "exact_simplify_body_in_developer_message": true,
+  "template_differences_at_first_assessment": {
+    "paths": [
+      "agents/simplify.toml",
+      "config.toml"
+    ],
+    "simplify_body_identical": true,
+    "simplify_description_before": "Actively simplify a working project: remove unnecessary responsibilities, states and layers while preserving required behavior and data.",
+    "simplify_description_after": "Simplify a working project by removing unnecessary responsibilities, states and layers while preserving required behavior and data."
+  },
+  "subsequent_template_revision": {
+    "changed_paths": [
+      "AGENTS.md",
+      "agents/dev.toml",
+      "agents/simplify.toml",
+      "config.toml",
+      "skills/develop/SKILL.md"
+    ],
+    "simplify_body_identical_to_final": false,
+    "explanation": "The trial preceded a later correction based on a separate natural Grok failure: direct simplify ownership for already-working projects, a focused baseline without freezing incidental quirks, and unique scratch files within assigned scope. The original role/core instruction snapshots and runtime evidence are preserved; this run does not test the later correction.",
+    "final_discovery_description": "Simplify a working project by removing unnecessary responsibilities, states and layers while preserving required behavior and data."
+  }
+}

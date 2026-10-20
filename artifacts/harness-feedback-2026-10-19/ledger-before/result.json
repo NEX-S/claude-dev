@@ -1,0 +1,23 @@
+{
+  "started_at": "2026-10-18T20:50:22.415070+00:00",
+  "version": "before",
+  "timeout_seconds": 300,
+  "staged_overlay": true,
+  "pid": 2268193,
+  "timed_out": false,
+  "returncode": 0,
+  "elapsed_seconds": 156.85,
+  "acceptance": {
+    "returncode": 0,
+    "passed": 14
+  },
+  "supplement": {
+    "returncode": 0,
+    "passed": 8
+  },
+  "preserved": {
+    "existing.db": true,
+    "README.md": true
+  },
+  "thread_id": "01a150c7-a27e-79f0-99a9-5279b827e4d5"
+}

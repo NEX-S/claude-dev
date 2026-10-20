@@ -1,0 +1,25 @@
+已加入 `rename ID TITLE`，并完成验证。使用方式：
+
+```bash
+python3 tasks.py --db PATH rename 7 "  新标题 中文 🐍  "
+```
+
+改动集中在 [tasks.py](/home/nex/.cache/harness-quality-20261019/ledger-after/project/tasks.py:17)：使用参数化 SQL 只更新 `title`，复用现有标题校验、事务和错误处理。成功时 stdout 为空，任务 ID 和完成状态保持不变；标题完整保留首尾空白和 Unicode。纯空白标题、不存在的 ID 及数据库操作失败均非零退出，stderr 包含原因，stdout 为空。[README.md](/home/nex/.cache/harness-quality-20261019/ledger-after/project/README.md:3) 已同步说明新命令，没有新增依赖或内部层次。
+
+执行了完整回归检查：
+
+```text
+python3 -B -W error::ResourceWarning -m unittest -v
+Ran 7 tests in 11.776s
+OK
+```
+
+新增验证覆盖待办和已完成任务改名、重复设置相同标题、跨调用持久化、空白与 Unicode 保留、无效标题和 ID，以及改名后的 JSON、Markdown 输出。真实 SQLite 锁冲突测试也确认：改名提交失败时 stdout 为空、stderr 保留 `database is locked`，标题修改被回滚。其余 CLI 回归检查全部通过。
+
+所有数据修改检查都使用项目内临时数据库或 `existing.db` 的副本。原库兼容性检查通过，表结构不变；`existing.db` 前后 SHA-256 一致：
+
+```text
+8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58
+```
+
+所有改动仅在当前临时项目内，测试临时文件已清理。

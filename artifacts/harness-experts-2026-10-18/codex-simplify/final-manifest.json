@@ -1,0 +1,14 @@
+{
+  "README.md": {
+    "sha256": "04e2dd7a25e68abf8730dd1343b4cb3c065596c28175b207448c0deb8e736236",
+    "bytes": 1045
+  },
+  "existing.db": {
+    "sha256": "8fe3b48d802059398eecae828209141b7c95a7b9f3cc30087783f6ae35a2be58",
+    "bytes": 12288
+  },
+  "tasks.py": {
+    "sha256": "f706c69967b62676d4168d863a262dd9a111c2f87bd546773c8a24bacabf73ae",
+    "bytes": 2631
+  }
+}

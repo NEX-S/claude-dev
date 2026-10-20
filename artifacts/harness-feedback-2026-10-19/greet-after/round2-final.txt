@@ -1,0 +1,7 @@
+已将 [README.md](/home/nex/.cache/harness-quality-20261019/greet-after/project/README.md:1) 标题中的 `exmaple` 更正为 `example`：
+
+```markdown
+# Greeting example
+```
+
+已核对，其他内容保持不变。

@@ -1,0 +1,58 @@
+{
+  "grokVersion": "1.0.52",
+  "cwd": "/tmp/claude-dev-staged-greet-xarypgly/grok/project",
+  "projectRoot": null,
+  "projectTrusted": false,
+  "projectInstructions": [],
+  "permissions": {
+    "sources": [],
+    "loaded": 0,
+    "skipped": [],
+    "mcpServerAllowlist": [],
+    "mcpLockdownSources": [],
+    "mcpManagedServersOnly": "off",
+    "marketplaceAllowlist": [],
+    "marketplaceLockdownSources": [],
+    "managedMarketplaces": [],
+    "managedSettingsPath": "/etc/claude-code/managed-settings.json",
+    "managedSettingsExists": false,
+    "managedSettingsActive": false,
+    "claudeBypassLockAdvisory": false
+  },
+  "configWarnings": [
+    {
+      "target": "configKey",
+      "path": "privacy",
+      "kind": "unknown-field",
+      "reason": "unrecognized config key"
+    }
+  ],
+  "agents": [
+    {
+      "name": "review",
+      "description": "Review actual behavior and design necessity; identify concrete defects or avoidable complexity without adding speculative guarantees.",
+      "source": {
+        "type": "project",
+        "path": "/tmp/claude-dev-staged-greet-xarypgly/grok/project/.grok/agents/review.md"
+      }
+    },
+    {
+      "name": "dev",
+      "description": "Implement an independent outcome with direct code, appropriate verification and necessary repairs.",
+      "source": {
+        "type": "project",
+        "path": "/tmp/claude-dev-staged-greet-xarypgly/grok/project/.grok/agents/dev.md"
+      }
+    },
+    {
+      "name": "arch",
+      "description": "Resolve a consequential design question or focused research need; choose the least complex complete approach.",
+      "source": {
+        "type": "project",
+        "path": "/tmp/claude-dev-staged-greet-xarypgly/grok/project/.grok/agents/arch.md"
+      }
+    }
+  ],
+  "skills": [],
+  "inspect_exit_code": 0
+}

@@ -1,0 +1,34 @@
+已完成，仅使用 Python 标准库，代码和验证操作都在当前临时项目内。
+
+交付文件：
+
+- [todo.py](/tmp/claude-dev-codex-product-hwfovkb7/project/todo.py)：单文件命令行工具。
+- [README.md](/tmp/claude-dev-codex-product-hwfovkb7/project/README.md)：启动、使用和数据保存说明。
+
+无需安装依赖。在当前项目目录中运行：
+
+```sh
+# 添加任务
+python3 todo.py add "买牛奶"
+python3 todo.py add "阅读 Python 文档"
+
+# 列出全部任务
+python3 todo.py list
+
+# 按编号标记完成
+python3 todo.py done 1
+
+# 再次查看
+python3 todo.py list
+```
+
+最后会显示：
+
+```text
+[x] 1. 买牛奶
+[ ] 2. 阅读 Python 文档
+```
+
+每次命令执行后自动退出，添加和完成操作会立即保存到脚本旁的 `tasks.json`。关闭终端后再运行，任务仍然保留；从其他目录通过脚本的绝对路径启动，也会使用同一份数据。查看帮助可运行 `python3 todo.py --help`。
+
+已实际验证空列表、中文和含空格的任务、跨进程持久化、跨目录启动、标记完成及重复完成，也检查了空白内容、无效编号和损坏数据文件的报错行为。验证文件已清理，项目中没有残留测试任务。当前工具适合依次执行命令，不支持多个进程同时修改任务。

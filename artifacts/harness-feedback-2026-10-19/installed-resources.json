@@ -1,0 +1,111 @@
+{
+  "all_match": true,
+  "checked_files": 21,
+  "checks": [
+    {
+      "client": "claude",
+      "path": "/home/nex/.claude-dev/CLAUDE.md",
+      "matches": true
+    },
+    {
+      "client": "claude",
+      "path": "/home/nex/.claude-dev/agents/arch.md",
+      "matches": true
+    },
+    {
+      "client": "claude",
+      "path": "/home/nex/.claude-dev/agents/dev.md",
+      "matches": true
+    },
+    {
+      "client": "claude",
+      "path": "/home/nex/.claude-dev/agents/review.md",
+      "matches": true
+    },
+    {
+      "client": "claude",
+      "path": "/home/nex/.claude-dev/agents/research.md",
+      "matches": true
+    },
+    {
+      "client": "claude",
+      "path": "/home/nex/.claude-dev/agents/simplify.md",
+      "matches": true
+    },
+    {
+      "client": "claude",
+      "path": "/home/nex/.claude-dev/skills/develop/SKILL.md",
+      "matches": true
+    },
+    {
+      "client": "codex",
+      "path": "/home/nex/.codex-dev/AGENTS.md",
+      "matches": true
+    },
+    {
+      "client": "codex",
+      "path": "/home/nex/.codex-dev/agents/arch.toml",
+      "matches": true
+    },
+    {
+      "client": "codex",
+      "path": "/home/nex/.codex-dev/agents/dev.toml",
+      "matches": true
+    },
+    {
+      "client": "codex",
+      "path": "/home/nex/.codex-dev/agents/review.toml",
+      "matches": true
+    },
+    {
+      "client": "codex",
+      "path": "/home/nex/.codex-dev/agents/research.toml",
+      "matches": true
+    },
+    {
+      "client": "codex",
+      "path": "/home/nex/.codex-dev/agents/simplify.toml",
+      "matches": true
+    },
+    {
+      "client": "codex",
+      "path": "/home/nex/.codex-dev/skills/develop/SKILL.md",
+      "matches": true
+    },
+    {
+      "client": "grok",
+      "path": "/home/nex/.grok-dev/AGENTS.md",
+      "matches": true
+    },
+    {
+      "client": "grok",
+      "path": "/home/nex/.grok/agents/arch.md",
+      "matches": true
+    },
+    {
+      "client": "grok",
+      "path": "/home/nex/.grok/agents/dev.md",
+      "matches": true
+    },
+    {
+      "client": "grok",
+      "path": "/home/nex/.grok/agents/review.md",
+      "matches": true
+    },
+    {
+      "client": "grok",
+      "path": "/home/nex/.grok/agents/research.md",
+      "matches": true
+    },
+    {
+      "client": "grok",
+      "path": "/home/nex/.grok/agents/simplify.md",
+      "matches": true
+    },
+    {
+      "client": "grok",
+      "path": "/home/nex/.grok-dev/skills/develop/SKILL.md",
+      "matches": true
+    }
+  ]
+}
